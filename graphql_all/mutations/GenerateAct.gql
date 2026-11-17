@@ -1,3 +1,0 @@
-mutation ($partnerId: String!, $contractId: String, $period: PeriodFilter) {
-  getActSverki (partnerId: $partnerId, contractId: $contractId, period: $period)
-}

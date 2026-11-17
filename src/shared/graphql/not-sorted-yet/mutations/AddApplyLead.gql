@@ -1,0 +1,8 @@
+mutation AddApplyLead ($input: LeadInput!, $esignatureInput: EsignatureInput!) {
+  addApplyLead (input: $input) {
+    _id
+  }
+  addEsignature (input: $esignatureInput) {
+    id
+  }
+}

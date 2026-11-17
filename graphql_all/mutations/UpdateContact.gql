@@ -1,5 +1,0 @@
-mutation ($input: ContactInput!) {
-  updateContact (input: $input) {
-    _id
-  }
-}

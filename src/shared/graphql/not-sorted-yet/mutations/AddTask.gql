@@ -1,0 +1,20 @@
+mutation AddTask ($input: TaskInput!) {
+  addTask (input: $input) {
+    _id
+    text
+    element
+    element_type
+    responsible_user {
+      _id
+      name
+    }
+    complete_till_at
+    createdAt
+    is_completed
+    task_type
+    created_by {
+      _id
+      name
+    }
+  }
+}

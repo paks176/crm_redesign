@@ -1,0 +1,45 @@
+query AllKanbanLeads ($filter: KanbanLeadsFilter, $pagination: [KanbanLeadsStatusPaginationInput], $globalPagination: KanbanLeadsStatusGlobalPaginationInput) {
+  allKanbanLeads (filter: $filter) {
+    meta {
+      columns {
+        field
+        name
+        count
+      }
+      totalCount
+    }
+    
+    data (
+      pagination: $pagination,
+      globalPagination: $globalPagination
+    ) {
+      statusValue
+      statusName
+      count
+      data {
+        id
+        created_by
+        group {
+          id
+          name
+        }
+        summ
+        createdAt
+        status
+        company {
+          _id
+          name
+          inn
+        }
+        responsible_user {
+          _id
+          name
+        }
+        creator {
+          id
+          name
+        }
+      }
+    }
+  }
+}

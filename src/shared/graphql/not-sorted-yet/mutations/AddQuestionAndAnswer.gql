@@ -1,0 +1,14 @@
+mutation AddQuestionAndAnswer ($support_request_id: ID!, $question_files: [String], $question: String!) {
+    addQuestionAndAnswer(support_request_id: $support_request_id, question: $question, question_files: $question_files) {
+        id
+        question
+        question_files
+        answer
+        answer_files
+        created_date
+        updated_date
+        support_request {
+            id
+        }
+    }
+}

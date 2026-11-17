@@ -1,6 +1,0 @@
-query allTags($page: Int, $perPage: Int, $filter: TagFilter) {
-  allTags(page: $page, perPage: $perPage, filter: $filter) {
-    id
-    name
-  }
-}

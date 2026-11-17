@@ -1,3 +1,0 @@
-mutation ($token: String!) {
-  tgActivation (token: $token)
-}

@@ -1,0 +1,52 @@
+query AllManagerDesktopLeads ($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: LeadFilter, $checked: Boolean) {
+  allLeads (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter, checked: $checked) {
+    _id
+    id
+    name
+    createdAt
+    status
+    responsible_user {
+      _id
+      id
+      name
+    }
+    creator {
+      _id
+      id
+      name
+    }
+    group {
+      id
+      name
+    }
+    contracts {
+      id
+      name
+      status
+    }
+    company {
+      _id
+      id
+      name
+      inn
+    }
+    calculators
+    nextTask {
+      _id
+      id
+      task_type
+      complete_till_at
+      is_completed
+    }
+    calcPriceSum
+    projectNumber
+    serviceComment {
+      _id
+      id
+      text
+    }
+  }
+  _allLeadsMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

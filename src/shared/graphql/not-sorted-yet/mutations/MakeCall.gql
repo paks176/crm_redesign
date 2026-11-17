@@ -1,0 +1,3 @@
+mutation MakeCall ($phone: String!){
+  makeCall(phone:$phone)
+}

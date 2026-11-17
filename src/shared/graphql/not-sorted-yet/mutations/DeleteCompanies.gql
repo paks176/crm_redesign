@@ -1,0 +1,3 @@
+mutation DeleteCompanies ($ids: [String!]) {
+  deleteCompanies (ids: $ids)
+}

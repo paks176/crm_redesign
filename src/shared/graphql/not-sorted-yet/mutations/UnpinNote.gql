@@ -1,0 +1,13 @@
+mutation UnpinNote ($id: ID!) {
+  unpinNote (id: $id) {
+    _id
+    text
+    element
+    element_type
+    responsible_user {
+      _id
+      name
+    }
+    createdAt
+  }
+}

@@ -1,0 +1,15 @@
+mutation CreateEdoWaypointFiles ($edoWaypointFiles: [EdoWaypointFileInput!]!) {
+  createEdoWaypointFiles (edoWaypointFiles: $edoWaypointFiles) {
+    id
+    document_id
+    document_view
+    message_id
+    entity_id
+    status
+    filename
+    fileext
+    hidden
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,3 @@
+mutation UpdateRating ($inn: String!) {
+  updateRating (inn: $inn)
+}

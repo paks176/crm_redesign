@@ -1,7 +1,0 @@
-mutation ($id: ID!, $company_id: ID) {
-  hideContact (id: $id, company_id: $company_id) {
-    id
-    name
-    hidden
-  }
-}

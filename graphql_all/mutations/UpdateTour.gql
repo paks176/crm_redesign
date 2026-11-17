@@ -1,5 +1,0 @@
-mutation ($input: TourInput!) {
-  updateTour (input: $input) {
-    id
-  }
-}

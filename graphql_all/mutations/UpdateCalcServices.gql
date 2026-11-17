@@ -1,3 +1,0 @@
-mutation ($calcId: String!, $input: [JSON]!) {
-  updateCalcServices (calcId: $calcId, input: $input)
-}

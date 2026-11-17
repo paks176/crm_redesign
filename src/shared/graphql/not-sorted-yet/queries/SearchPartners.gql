@@ -1,0 +1,8 @@
+query SearchPartners($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: PartnerFilter) {
+  allPartners(page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    id
+    name
+    fullname
+    inn
+  }
+}

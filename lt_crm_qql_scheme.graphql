@@ -1,0 +1,4602 @@
+#
+type Query {
+  # Checking the status of our service
+  status: String
+
+  #
+  showPubSub: JSON
+
+  # Get the current user entity
+  me: User
+
+  # Get list of partners, who have acces to data
+  shared: [String]
+
+  # Get user by ID, only admin
+  User(id: ID!): User
+
+  #
+  userForAdmin(id: ID!): User
+
+  # Get list of all users, only admin
+  allUsers(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: UserFilter
+  ): [User]
+
+  #
+  allUsersCourses(filter: CourseFilter): [User]
+
+  #
+  allCourses: [Course]
+
+  # Get count of all users, only admin
+  _allUsersMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: UserFilter
+  ): ListMetadata
+
+  # Check telegram user
+  checkTgUser(tgId: String!): Boolean
+
+  #
+  Partner(id: ID!): Partner
+
+  #
+  PartnerForInn: JSON
+
+  #
+  PartnerForUid(partner_id: String!): Partner
+
+  #
+  allPartners(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: PartnerFilter
+  ): [Partner]
+
+  #
+  _allPartnersMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: PartnerFilter
+  ): ListMetadata
+
+  #
+  contractsData(ids: [ID]!): [JSON]
+
+  #
+  Contract(id: ID!): Contract
+
+  #
+  allContracts(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: ContractFilter
+  ): [Contract]
+
+  #
+  allMemoContracts: [Contract]
+
+  #
+  _allContractsMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: ContractFilter
+  ): ListMetadata
+
+  #
+  maketList: [JSON]
+
+  #
+  documentTypes: [JSON]
+
+  #
+  Contact(id: ID!): Contact
+
+  #
+  allClientContacts(companyIds: [ID!]!): [Contact]
+
+  #
+  allContacts(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: ContactFilter
+  ): [Contact]
+
+  #
+  _allContactsMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: ContactFilter
+  ): ListMetadata
+
+  #
+  Holding(id: ID!): Holding
+
+  #
+  allHoldings(input: HoldingFilter): [Holding]
+
+  #
+  Company(id: ID!, rerenderKey: Int): Company
+
+  #
+  CompanyByInn(inn: String!): Company
+
+  #
+  CompanyAgentByInn(inn: String!): JSON
+
+  #
+  allCompanies(
+    rerenderKey: Int
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: CompanyFilter
+  ): [Company]
+
+  #
+  privateCompanies(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: CompanyFilter
+  ): [Company]
+
+  #
+  _allCompaniesMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: CompanyFilter
+  ): ListMetadata
+
+  #
+  checkCompany(inn: String!, id: ID!): JSON
+
+  #
+  getCompany(inn: String!, name: String, type: String): JSON
+
+  #
+  allClientLeads: JSON
+
+  #
+  Lead(id: ID!, rerenderKey: Int): Lead
+
+  #
+  allLeads(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: LeadFilter
+    checked: Boolean
+  ): [Lead]
+
+  #
+  allRoistatLeads(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: LeadFilter
+    checked: Boolean
+  ): [Lead]
+
+  #
+  projectLeads: [Lead]
+
+  #
+  projectProperties(id: String!): [JSON]
+
+  #
+  _allLeadsMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: LeadFilter
+  ): ListMetadata
+
+  #
+  _unprocessedLeadsMeta: ListMetadata
+
+  #
+  tryCalc(input: CalcInput!): JSON
+
+  #
+  tryFullCalc(input: FullCalcInput!): JSON
+
+  #
+  individualTryFullCalc(input: FullCalcInput!): JSON
+
+  #
+  checkProject(id: ID!, inn: String): JSON
+
+  #
+  leadStatusList: [JSON]
+
+  #
+  allGroups: [JSON]
+
+  #
+  providerList(inn: String): [JSON]
+
+  #
+  agentList: [JSON]
+
+  #
+  bankList(bik: String!): [JSON]
+
+  #
+  otherLeasing(inn: String!, conturfocus: Boolean): [JSON]!
+
+  #
+  guarantor(inn: String!, id: ID!): JSON
+
+  #
+  allCalculators(
+    q: String
+    rerenderKey: Int
+    free: Boolean
+    filter: JSON
+    page: Int
+    perPage: Int
+  ): [JSON]
+
+  #
+  _allCalculatorsMeta(
+    q: String
+    free: Boolean
+    filter: JSON
+    page: Int
+    perPage: Int
+    rerenderKey: Int
+  ): ListMetadata
+
+  #
+  getCalc(id: String!): [JSON]
+
+  #
+  calcServices(calc_id: String!): [JSON]
+
+  #
+  calcServicesList: [JSON]
+
+  #
+  projects(projectIds: [String!]!): [Lead]
+
+  #
+  allKanbanLeads(
+    sortField: String
+    sortOrder: String
+    filter: KanbanLeadsFilter
+  ): KanbanLeads
+
+  #
+  Task(id: ID!): Task
+
+  #
+  allTasks(
+    rerenderKey: Int
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: TaskFilter
+  ): [Task]
+
+  #
+  allMemoThemes: [JSON]
+
+  #
+  allMemos(page: Int!, perPage: Int!, filter: MemoFilter!): [JSON]
+
+  #
+  allDoTasks: [JSON]
+
+  #
+  allEmployeeDoTasks: [JSON]
+
+  #
+  _allDoTasksMeta: ListMetadata
+
+  #
+  docVisas(doc: String!): [JSON]
+
+  #
+  allLeadDoTasks(id: String!): [JSON]
+
+  #
+  _allTasksMeta(
+    rerenderKey: Int
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: TaskFilter
+  ): ListMetadata
+
+  #
+  _allMemosMeta(page: Int!, perPage: Int!, filter: MemoFilter!): ListMetadata
+
+  #
+  Note(id: ID!): Note
+
+  #
+  ElementAgentNotes(element_type: String!, element_id: String!): [Note]
+
+  #
+  DownloadMailMessages: Boolean
+
+  #
+  MailMessages(filter: MailMessagesFilter!): [ShortMail]!
+
+  #
+  MailMessage(uidMessage: String!): Mail
+
+  #
+  MailAttachment(uidMessage: String, partId: String): JSON
+
+  # Gets widget settings according to user
+  getWidget(
+    sort: PeriodFilter
+    filter: JSON
+    settings: JSON
+    rerenderKey: Int
+  ): JSON
+
+  #
+  getReport(sort: PeriodFilter, filter: JSON, analytic: Boolean): [JSON]
+
+  #
+  getPropertyReport(sort: PeriodFilter, filter: JSON): [JSON]
+
+  #
+  getNotifications(sort: PeriodFilter): [JSON]
+
+  #
+  getNotificationTrigger: Boolean
+
+  #
+  getFilterUsers: JSON
+
+  #
+  Candidate(id: ID!): Candidate
+
+  #
+  allCandidates(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: CandidateFilter
+  ): [Candidate]
+
+  #
+  _allCandidatesMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: CandidateFilter
+  ): ListMetadata
+
+  #
+  Tag(id: ID!): Tag
+
+  #
+  allTags(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: TagFilter
+  ): [Tag]
+
+  #
+  _allTagsMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: TagFilter
+  ): ListMetadata
+
+  #
+  MessageTemplate(id: ID!): MessageTemplate
+
+  #
+  allMessageTemplates(responsible_id: String, type: String): [MessageTemplate]
+
+  #
+  allFaqResponsible: [String]
+
+  #
+  FaqPopular(id: ID!): FaqPopular
+
+  #
+  allFaqPopular: [FaqPopular]
+
+  #
+  Theme(id: ID!): Theme
+
+  #
+  allThemes: [Theme]
+
+  #
+  SupportRequest(id: ID!): SupportRequest
+
+  #
+  clientSupportRequests: [SupportRequest]
+
+  #
+  managerSupportRequests: [SupportRequest]
+
+  #
+  _supportMeta: ListMetadata
+
+  #
+  _appealMeta: ListMetadata
+
+  #
+  Esignature(id: ID, filter: EsignatureFilter): Esignature
+
+  #
+  allEsignature: [Esignature]
+
+  #
+  Tour(id: ID!): Tour
+
+  #
+  allTours: [Tour]
+
+  #
+  Project(id: ID!): Project
+
+  #
+  allProjects(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: ProjectFilter
+  ): [Project]
+
+  #
+  _allProjectsMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: ProjectFilter
+  ): ListMetadata
+
+  #
+  PrefillProject(leadId: String): PrefillProject
+
+  #
+  Directory(id: ID, user_oid: ID): Directory
+
+  #
+  allDirectories(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: DirectoryFilter
+  ): [Directory]
+
+  #
+  _allDirectoriesMeta(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: DirectoryFilter
+  ): ListMetadata
+
+  #
+  allDepartments: [String]!
+
+  #
+  allSubdivisions: [String]!
+
+  #
+  Event(id: ID!): Event
+
+  #
+  allEvents(type: String): [Event]
+
+  #
+  lastEvents: [Event]
+
+  #
+  diadocDocuments(refreshKey: Int): DiadocDocumentsData
+
+  #
+  sbisDocuments(refreshKey: Int): DiadocDocumentsData
+
+  #
+  newDiadocEvents(filter: DiadocEventsFilter): JSON
+
+  #
+  newDiadocDocuments: JSON
+
+  #
+  counteragentSignedDiadocDocuments: JSON
+
+  #
+  counteragentSignedSbisDocuments: JSON
+
+  #
+  edoSigners(operator: EdoOperator): [User]
+
+  #
+  edoRoutes: [EdoRoute]
+}
+
+# Included scalars
+scalar JSON
+
+# Base user type, can have one of the user roles
+type User {
+  #
+  _id: ID
+
+  #
+  id: ID
+
+  #
+  user_id: String
+
+  #
+  email: String!
+
+  #
+  role: UserRole!
+
+  #
+  roles: [String]
+
+  #
+  name: String
+
+  #
+  phone: String
+
+  #
+  workphone: String
+
+  #
+  group: Group
+
+  #
+  settings: JSON
+
+  #
+  callHistory: [JSON]
+
+  #
+  abonentId: String
+
+  #
+  telegramId: String
+
+  #
+  maxId: String
+
+  #
+  ref_id: [String]
+
+  #
+  banned: Boolean
+
+  #
+  tours: [Tour]
+
+  #
+  agent: Boolean
+
+  #
+  token: String
+
+  #
+  courses(filter: CourseFilter): [JSON]
+
+  #
+  tester: Boolean
+
+  #
+  isOnline: Boolean
+
+  #
+  lastActivity: Date
+}
+
+# User roles described
+enum UserRole {
+  #
+  admin
+
+  #
+  partner
+
+  #
+  manager
+
+  #
+  headmanager
+
+  #
+  callcenter
+
+  #
+  backoffice
+
+  #
+  debtcontrol
+
+  #
+  sop
+
+  #
+  agent
+}
+
+#
+type Group {
+  #
+  id: String
+
+  #
+  name: String
+}
+
+#
+type Tour {
+  #
+  id: ID!
+
+  #
+  name: String!
+
+  #
+  text: String!
+
+  #
+  block: String!
+
+  #
+  page: String!
+
+  #
+  order: Int!
+
+  #
+  redirect: String
+
+  #
+  role: [String]
+
+  #
+  viewed: Boolean!
+}
+
+#
+input CourseFilter {
+  #
+  status: String
+
+  #
+  empty: Boolean
+}
+
+#
+scalar Date
+
+# Used for filtering user list
+input UserFilter {
+  #
+  q: String
+
+  #
+  role: UserRole
+
+  #
+  group_id: String
+
+  #
+  ids: [ID]
+}
+
+#
+type Course {
+  #
+  _id: ID
+
+  #
+  id: ID
+
+  #
+  title: String
+
+  #
+  link: String
+
+  #
+  description: String
+
+  #
+  viewed: Boolean
+}
+
+#
+type ListMetadata {
+  #
+  count: Int
+
+  #
+  additional: AdditionalListMetadata
+}
+
+#
+type AdditionalListMetadata {
+  #
+  leadsCount: Int
+
+  #
+  projectsCount: Int
+}
+
+#
+type Partner {
+  #
+  id: ID!
+
+  #
+  inn: String
+
+  #
+  name: String
+
+  #
+  email: String
+
+  #
+  isemail: Boolean
+
+  #
+  fullname: String
+
+  #
+  kpp: String
+
+  #
+  adresU: String
+
+  #
+  adresD: String
+
+  #
+  phone: String
+
+  #
+  rs: String
+
+  #
+  bank: String
+
+  #
+  bik: String
+
+  #
+  ks: String
+
+  #
+  contracts(
+    page: Int
+    perPage: Int
+    sortField: String
+    sortOrder: String
+    filter: ContractFilter
+  ): [Contract]
+
+  #
+  manager: User
+
+  #
+  tags: [Tag]
+}
+
+#
+input ContractFilter {
+  #
+  q: String
+
+  #
+  partner_id: ID
+
+  #
+  status: String
+
+  #
+  status_date: PeriodFilter
+
+  #
+  tags: [ID]
+
+  #
+  company_id: String
+
+  #
+  signed: Boolean
+
+  #
+  unloaded: Boolean
+
+  #
+  advance: Boolean
+
+  #
+  callCenter: Boolean
+
+  #
+  internet: Boolean
+
+  #
+  manager_id: String
+
+  #
+  group_id: String
+}
+
+# Для фильтров по периоду, указывается дата начала и окончания
+input PeriodFilter {
+  #
+  start: Date
+
+  #
+  end: Date
+}
+
+#
+type Contract {
+  #
+  id: ID!
+
+  #
+  contract_id: String
+
+  #
+  name: String!
+
+  #
+  date: Date
+
+  #
+  status_date: Date
+
+  #
+  status: String
+
+  #
+  debt: String
+
+  #
+  dz1: String
+
+  #
+  dz2: String
+
+  #
+  dz3: String
+
+  #
+  summ: String
+
+  #
+  duration: String
+
+  #
+  balanceholder: String
+
+  #
+  property_name: String
+
+  #
+  property_vin: String
+
+  #
+  property_sign: String
+
+  #
+  payments: [Payment]
+
+  #
+  archives: [Archive]
+
+  #
+  notes: [Note]
+
+  #
+  tasks: [Task]
+
+  #
+  tags: [Tag]
+
+  #
+  partner: Company
+
+  #
+  manager: User
+
+  #
+  files: [JSON]
+
+  #
+  signers: JSON
+
+  #
+  delivered: Boolean
+
+  #
+  date_payment: String
+
+  #
+  payments_remainder: String
+
+  #
+  phone: String
+
+  #
+  note: Note
+
+  #
+  beacons: [Beacon]
+
+  #
+  provider: ContractProvider
+
+  #
+  guarantor: JSON
+
+  #
+  lead: Lead
+}
+
+#
+type Payment {
+  #
+  date: String
+
+  #
+  plan: String
+
+  #
+  paid: String
+}
+
+#
+type Archive {
+  #
+  id: String
+
+  #
+  name: String
+
+  #
+  type: String
+
+  #
+  summ: String
+
+  #
+  status: String
+}
+
+#
+type Note {
+  #
+  _id: ID!
+
+  #
+  id: ID!
+
+  #
+  text: String
+
+  #
+  created_by: User
+
+  #
+  createdAt: Date
+
+  #
+  is_editable: Boolean
+
+  #
+  note_type: String
+
+  #
+  element_type: String
+
+  #
+  element: JSON
+
+  #
+  responsible_user: User
+
+  #
+  isPinned: Boolean
+
+  #
+  attachments: [NoteAttachment]
+}
+
+#
+type NoteAttachment {
+  #
+  type: String
+
+  #
+  url: String
+}
+
+#
+type Task {
+  #
+  _id: ID!
+
+  #
+  id: ID!
+
+  #
+  created_by: User
+
+  #
+  text: String
+
+  #
+  updatedAt: Date
+
+  #
+  createdAt: Date
+
+  #
+  group: Group
+
+  #
+  is_completed: Boolean
+
+  #
+  complete_till_at: Date
+
+  #
+  duration: String
+
+  #
+  task_type: TaskType
+
+  #
+  element_type: String
+
+  #
+  element: JSON
+
+  #
+  notes: [Note]
+
+  #
+  responsible_user: User
+
+  #
+  phone: String
+}
+
+# Task types described
+enum TaskType {
+  #
+  Call
+
+  #
+  Meeting
+
+  #
+  WriteEmail
+
+  #
+  Get_docs
+
+  #
+  Action
+}
+
+#
+type Tag {
+  #
+  id: ID!
+
+  #
+  name: String
+}
+
+#
+type Company {
+  #
+  _id: ID
+
+  #
+  id: ID!
+
+  #
+  name: String
+
+  #
+  created_by: String
+
+  #
+  createdAt: Date
+
+  #
+  group: Group
+
+  #
+  phone(all: Boolean): [String]
+
+  #
+  email: String
+
+  #
+  inn: String
+
+  #
+  partner_id: String
+
+  #
+  notes(skip: Int, limit: Int): [Note]
+
+  #
+  tasks(skip: Int, limit: Int): [Task]
+
+  #
+  activeTasks: [Task]
+
+  #
+  _allNotesMeta: Int
+
+  #
+  contacts: [Contact]
+
+  #
+  leads: [Lead]
+
+  #
+  tags: [Tag]
+
+  #
+  responsible_user: User
+
+  #
+  files: [JSON]
+
+  #
+  limit_summ: String
+
+  #
+  limit_count: String
+
+  #
+  balance_summ: String
+
+  #
+  balance_count: String
+
+  #
+  period: String
+
+  #
+  sign: Esignature
+
+  #
+  sign_date: String
+
+  #
+  rating: String
+
+  #
+  rating_date: String
+
+  #
+  accreditation: String
+
+  #
+  otherLeasing: [JSON]
+
+  #
+  diadoc: DiadocOrganization
+
+  #
+  holding: Holding
+
+  #
+  types: [String]
+
+  #
+  lastNote: JSON
+}
+
+#
+type Contact {
+  #
+  _id: ID
+
+  #
+  id: ID!
+
+  #
+  name: String
+
+  #
+  created_by: String
+
+  #
+  createdAt: Date
+
+  #
+  group: Group
+
+  #
+  phone: [String]
+
+  #
+  email: String
+
+  #
+  call_source: String
+
+  #
+  city: String
+
+  #
+  post: String
+
+  #
+  birthday: Date
+
+  #
+  notes(skip: Int, limit: Int): [Note]
+
+  #
+  tasks(skip: Int, limit: Int): [Task]
+
+  #
+  activeTasks: [Task]
+
+  #
+  _allNotesMeta: Int
+
+  #
+  tags: [Tag]
+
+  #
+  company: Company
+
+  #
+  responsible_user: User
+
+  #
+  hidden: Boolean
+
+  #
+  companies: [Company]
+}
+
+#
+type Lead {
+  #
+  _id: ID!
+
+  #
+  id: ID!
+
+  #
+  name: String
+
+  #
+  created_by: String
+
+  #
+  createdAt: Date
+
+  #
+  projectCreatedAt: Date
+
+  #
+  updatedAt: Date
+
+  #
+  group: Group
+
+  # Get calc parameters from 1C
+  calculators: [JSON]
+
+  #
+  calcPriceSum: Float
+
+  #
+  contracts: [Contract]
+
+  #
+  project_id: String
+
+  #
+  product: String
+
+  #
+  summ: String
+
+  #
+  status: LeadStatus
+
+  #
+  serviceComment: Note
+
+  #
+  closed: String
+
+  #
+  tags: [Tag]
+
+  #
+  notes(skip: Int, limit: Int): [Note]
+
+  #
+  tasks(skip: Int, limit: Int): [Task]
+
+  #
+  nextTask: Task
+
+  #
+  activeTasks: [Task]
+
+  #
+  _allNotesMeta: Int
+
+  #
+  company: Company
+
+  #
+  responsible_user: User
+
+  #
+  creator: User
+
+  #
+  callCenter: Boolean
+
+  #
+  internet: Boolean
+
+  #
+  roistat: String
+
+  #
+  files: [JSON]
+
+  #
+  guarantors: [JSON]!
+
+  #
+  projectNumber: Int
+
+  #
+  statusLog: [StatusLog]
+}
+
+#
+enum LeadStatus {
+  #
+  first
+
+  #
+  meeting
+
+  #
+  documents
+
+  #
+  closed
+
+  #
+  closedCallcenter
+
+  #
+  created
+
+  #
+  decision
+
+  #
+  approved
+
+  #
+  spam
+
+  #
+  dl
+
+  #
+  atWork
+
+  #
+  atWorkCallcenter
+
+  #
+  transferredCallcenter
+
+  #
+  ad
+
+  #
+  active
+
+  #
+  atWorkManager
+
+  #
+  transferredToManager
+}
+
+#
+type StatusLog {
+  #
+  _id: ID!
+
+  #
+  id: ID!
+
+  #
+  status: Status
+
+  #
+  createdAt: Date
+
+  #
+  user: User
+}
+
+#
+type Status {
+  #
+  _id: ID!
+
+  #
+  id: ID!
+
+  #
+  title: String
+
+  #
+  value: String
+}
+
+#
+type Esignature {
+  #
+  id: ID
+
+  #
+  esignature_id: String
+
+  #
+  name: String
+
+  #
+  birthday: Date
+
+  #
+  birthplace: String
+
+  #
+  user_address: String
+
+  #
+  user_inn: String
+
+  #
+  passport: String
+
+  #
+  passport_date: String
+
+  #
+  passport_place: String
+
+  #
+  passport_code: String
+
+  #
+  user_phone: String
+
+  #
+  company_inn: String
+
+  #
+  sms_key: String
+
+  #
+  sms_phone: String
+
+  #
+  sms_date: Date
+
+  #
+  user_ip: String
+
+  #
+  createdAt: Date
+}
+
+#
+type DiadocOrganization {
+  #
+  OrgId: String
+
+  #
+  Inn: String
+
+  #
+  Kpp: String
+
+  #
+  FullName: String
+
+  #
+  ShortName: String
+
+  #
+  Boxes: [JSON]
+
+  #
+  IsRoaming: Boolean
+
+  #
+  LiquidationDate: String
+
+  #
+  HasCertificateToSign: Boolean
+}
+
+#
+type Holding {
+  #
+  id: ID
+
+  #
+  _id: ID
+
+  #
+  name: String
+
+  #
+  description: String
+
+  #
+  creator: User
+
+  #
+  companies: [Company]
+}
+
+#
+type Beacon {
+  #
+  id: ID!
+
+  #
+  contract_id: String
+
+  #
+  subject: String
+
+  #
+  color: String
+
+  #
+  date_of_issue: String
+
+  #
+  manager_phone: String
+
+  #
+  provider: String
+
+  #
+  provider_name: String
+
+  #
+  provider_address: String
+
+  #
+  provider_contact: String
+
+  #
+  kit: String
+
+  #
+  installation_date_plan: String
+
+  #
+  installation_date_fact: String
+}
+
+#
+type ContractProvider {
+  #
+  id: String
+
+  #
+  name: String
+
+  #
+  inn: String
+
+  #
+  kpp: String
+}
+
+#
+input PartnerFilter {
+  #
+  q: String
+
+  #
+  ids: [ID]
+}
+
+# Filter query for a Contact
+input ContactFilter {
+  #
+  q: String
+
+  #
+  ids: [ID]
+
+  #
+  name: String
+
+  #
+  phone: String
+
+  #
+  email: String
+
+  #
+  tags: [ID]
+
+  #
+  group_id: [String]
+
+  #
+  responsible_user_id: String
+}
+
+#
+input HoldingFilter {
+  #
+  creator_id: ID
+
+  # RegExp name
+  name: String
+}
+
+# Filter query for a Company
+input CompanyFilter {
+  #
+  q: String
+
+  #
+  ids: [ID]
+
+  #
+  name: String
+
+  #
+  phone: String
+
+  #
+  email: String
+
+  #
+  inn: String
+
+  #
+  tags: [ID]
+
+  #
+  group_id: [String]
+
+  #
+  responsible_user_id: String
+
+  #
+  light: Boolean
+
+  #
+  special: Boolean
+
+  #
+  dept: Boolean
+
+  #
+  equipment: Boolean
+
+  #
+  dept30: Boolean
+
+  #
+  dept10: Boolean
+
+  #
+  delivered: Boolean
+
+  #
+  approved: Boolean
+
+  #
+  workSB: Boolean
+
+  #
+  workUO: Boolean
+
+  #
+  facePunch: Boolean
+
+  #
+  otkazSB: Boolean
+
+  #
+  activeTasks: Boolean
+
+  #
+  limit: Boolean
+
+  #
+  signed: Boolean
+
+  #
+  rating: [String]
+
+  #
+  holding_id: String
+
+  #
+  types: [String]
+
+  #
+  hasPhone: Boolean
+
+  #
+  activityPeriod: PeriodFilter
+}
+
+# Filter query for a Lead
+input LeadFilter {
+  #
+  q: String
+
+  #
+  tags: [ID]
+
+  #
+  status: LeadStatus
+
+  #
+  not_statuses: [LeadStatus]
+
+  #
+  statuses: [LeadStatus]
+
+  #
+  ids: [ID]
+
+  #
+  roistat: [String]
+
+  #
+  group_id: [String]
+
+  #
+  responsible_user_id: String
+
+  #
+  not_responsible_user_id: String
+
+  #
+  callCenter: Boolean
+
+  #
+  form: Boolean
+
+  #
+  internet: Boolean
+
+  #
+  created_by: String
+
+  #
+  not_created_by: String
+
+  #
+  created_by_group_id: String
+
+  #
+  createdAt: PeriodFilter
+
+  #
+  updatedAt: PeriodFilter
+
+  #
+  hasContracts: Boolean
+
+  #
+  hasProject: Boolean
+
+  #
+  hasStatusLog: Boolean
+}
+
+# Input for calculations
+input CalcInput {
+  #
+  id: ID
+
+  #
+  leadId: ID
+
+  #
+  name: String
+
+  #
+  propType: PropertyTypes
+
+  # Price of property (Стоимость)
+  price: Float!
+
+  # Prepaid amount (Аванс)
+  prepaid: Float!
+
+  # Duration of the contract (Срок)
+  duration: Int!
+
+  #
+  graphType: GraphType
+
+  # Financial rate (Ставка привлечения)
+  rate: Float
+
+  # Manager commision (Комиссия менеджера)
+  managerCom: Float
+
+  # Agent commision (Комиссия агента)
+  agentCom: Float
+
+  # Graph strength (Сила наклона)
+  strength: Int
+
+  # Staircount (Месяцев в лестнице)
+  stair: Int
+
+  # НДС %
+  nds: String
+
+  # Условия гарантии
+  conditions: String
+
+  # Кадастровая стоимость
+  cadastral: Float
+}
+
+#
+enum PropertyTypes {
+  #
+  light
+
+  #
+  lightcommercial
+
+  #
+  commercial
+
+  #
+  special
+
+  #
+  equipment
+
+  #
+  realEstate
+
+  #
+  residentialEstate
+}
+
+# GraphTypes
+enum GraphType {
+  #
+  annuity
+
+  #
+  drawdown
+
+  #
+  annuityStair
+}
+
+# input for a full calculations
+input FullCalcInput {
+  #
+  id: String
+
+  #
+  name: String
+
+  #
+  price: String
+
+  #
+  inputPrice: String
+
+  #
+  prepaidProc: String
+
+  #
+  prepaid: String
+
+  #
+  financeAmount: String
+
+  #
+  duration: String
+
+  #
+  managerCom: String
+
+  #
+  agentCom: String
+
+  #
+  strength: String
+
+  #
+  stair: String
+
+  #
+  graphType: String
+
+  #
+  propType: String
+
+  #
+  nds: String
+
+  #
+  agent: JSON
+
+  #
+  balanceholder: String
+
+  #
+  provider: JSON
+
+  #
+  comment: String
+
+  #
+  prepaidDate: String
+
+  #
+  rate: String
+
+  #
+  wasInUse: Boolean
+
+  #
+  inStock: Boolean
+
+  #
+  subjectData: SubjectData
+
+  #
+  individualGraph: [JSON]
+
+  #
+  isCalculation: Boolean
+
+  #
+  currency: String
+
+  #
+  company: JSON
+
+  #
+  leadId: ID
+
+  #
+  dueDate: String
+
+  #
+  hasPhasedFunding: Boolean
+
+  #
+  phasedFunding: [PhasedFundingItemInput]
+}
+
+#
+input SubjectData {
+  #
+  year: String
+
+  #
+  inStock: Boolean
+
+  #
+  wasInUse: Boolean
+
+  #
+  commentSubject: String
+
+  #
+  conditions: String
+
+  #
+  vin: String
+
+  #
+  adresDKP: String
+
+  #
+  adresDL: String
+
+  #
+  srokPostavki: String
+
+  #
+  srokPostavkiDni: String
+
+  #
+  tehChar: String
+
+  #
+  body: String
+
+  #
+  chassis: String
+
+  #
+  colour: String
+
+  #
+  engine: String
+
+  #
+  pts: String
+
+  #
+  pts_date: String
+}
+
+#
+input PhasedFundingItemInput {
+  #
+  n: String
+
+  #
+  date: Date
+
+  #
+  name: String
+
+  #
+  realName: String
+
+  #
+  inn: String
+
+  #
+  rate: String
+
+  #
+  share: String
+
+  #
+  sum: String
+}
+
+#
+input KanbanLeadsFilter {
+  #
+  q: String
+
+  #
+  tags: [ID]
+
+  #
+  status: LeadStatus
+
+  #
+  not_statuses: [LeadStatus]
+
+  #
+  statuses: [LeadStatus]
+
+  #
+  ids: [ID]
+
+  #
+  roistat: [String]
+
+  #
+  group_id: [String]
+
+  #
+  responsible_user_id: String
+
+  #
+  callCenter: Boolean
+
+  #
+  form: Boolean
+
+  #
+  internet: Boolean
+
+  #
+  created_by: String
+
+  #
+  created_by_group_id: String
+
+  #
+  createdAt: PeriodFilter
+
+  #
+  updatedAt: PeriodFilter
+
+  #
+  hasContracts: Boolean
+
+  #
+  hasProject: Boolean
+}
+
+#
+type KanbanLeads {
+  #
+  meta: KanbanLeadsMeta!
+
+  #
+  data(
+    pagination: [KanbanLeadsStatusPaginationInput]
+    globalPagination: KanbanLeadsStatusGlobalPaginationInput
+  ): [KanbanLeadsData]!
+}
+
+#
+type KanbanLeadsMeta {
+  #
+  columns: [KanbanLeadsColumn]!
+
+  #
+  totalCount: Int!
+}
+
+#
+type KanbanLeadsColumn {
+  #
+  field: String!
+
+  #
+  name: String!
+
+  #
+  count: Int!
+}
+
+#
+input KanbanLeadsStatusPaginationInput {
+  #
+  statusName: LeadStatus!
+
+  #
+  skip: Int!
+
+  #
+  limit: Int!
+}
+
+#
+input KanbanLeadsStatusGlobalPaginationInput {
+  #
+  skip: Int!
+
+  #
+  limit: Int!
+}
+
+#
+type KanbanLeadsData {
+  #
+  statusValue: String!
+
+  #
+  statusName: String!
+
+  #
+  data: [Lead]!
+
+  #
+  count: Int!
+}
+
+# Filter query for a Task
+input TaskFilter {
+  #
+  q: String
+
+  #
+  ids: [ID]
+
+  #
+  is_completed: Boolean
+
+  #
+  created_by: String
+
+  #
+  element_id: String
+
+  #
+  group_id: [String]
+
+  #
+  complete_till_at: PeriodFilter
+
+  #
+  responsible_user_id: String
+
+  #
+  company: CompanyFilter
+}
+
+#
+input MemoFilter {
+  #
+  status: String
+
+  #
+  period: [String]
+
+  #
+  sortDate: String
+}
+
+# Mail filter
+input MailMessagesFilter {
+  #
+  client: String!
+}
+
+#
+type ShortMail {
+  #
+  id: ID
+
+  #
+  uid: Int
+
+  #
+  viewed: Boolean
+
+  #
+  date: Date
+
+  #
+  company_address: String
+
+  #
+  user_address: String
+
+  #
+  type: MailType
+
+  #
+  text: String
+}
+
+# Mail types
+enum MailType {
+  #
+  send
+
+  #
+  receive
+}
+
+# Mail type
+type Mail {
+  #
+  id: String
+
+  #
+  uid: Int
+
+  #
+  flags: [String]
+
+  #
+  date: Date
+
+  #
+  from: [MailAddressType]
+
+  #
+  to: [MailAddressType]
+
+  #
+  replyTo: [MailAddressType]
+
+  #
+  subject: String
+
+  #
+  text: String
+
+  #
+  attachments: [Attachment]
+}
+
+#
+type MailAddressType {
+  #
+  address: String
+
+  #
+  name: String
+}
+
+#
+type Attachment {
+  #
+  partId: String
+
+  #
+  filename: String
+
+  #
+  size: Int
+}
+
+#
+type Candidate {
+  #
+  _id: ID
+
+  #
+  id: ID!
+
+  #
+  name: String
+
+  #
+  created_by: String
+
+  #
+  createdAt: Date
+
+  #
+  group: Group
+
+  #
+  phone: [String]
+
+  #
+  email: String
+
+  #
+  city: String
+
+  #
+  post: String
+
+  #
+  birthday: Date
+
+  #
+  status: String
+
+  #
+  closed: String
+
+  #
+  notes: [Note]
+
+  #
+  tasks: [Task]
+
+  #
+  tags: [Tag]
+
+  #
+  responsible_user: User
+}
+
+# Filter query for a Candidate
+input CandidateFilter {
+  #
+  q: String
+
+  #
+  ids: [ID]
+
+  #
+  name: String
+
+  #
+  phone: String
+
+  #
+  email: String
+
+  #
+  status: String
+
+  #
+  closed: String
+
+  #
+  tags: [ID]
+
+  #
+  group_id: [String]
+
+  #
+  responsible_user_id: String
+}
+
+#
+input TagFilter {
+  #
+  q: String
+}
+
+#
+type MessageTemplate {
+  #
+  id: ID!
+
+  #
+  title: String!
+
+  #
+  message: String!
+
+  #
+  responsible_id: String!
+
+  #
+  type: String!
+}
+
+#
+type FaqPopular {
+  #
+  id: ID!
+
+  #
+  theme: String!
+
+  #
+  question: String!
+
+  #
+  answer: String!
+
+  #
+  pay: String
+}
+
+#
+type Theme {
+  #
+  id: ID!
+
+  #
+  name: String!
+
+  #
+  priority: String!
+
+  #
+  responsible_ids: [ID!]!
+
+  #
+  prefilledText: String
+}
+
+#
+type SupportRequest {
+  #
+  id: ID!
+
+  #
+  client_id: String!
+
+  #
+  client_name: String!
+
+  #
+  company_id: String
+
+  #
+  company_name: String
+
+  #
+  role: String!
+
+  #
+  responsible_ids: [String!]!
+
+  #
+  created_date: Date!
+
+  #
+  updated_date: Date!
+
+  #
+  last_date: Date!
+
+  #
+  status: String!
+
+  #
+  theme: Theme!
+
+  #
+  questions: [QuestionAndAnswer]
+
+  #
+  uuid: String
+}
+
+#
+type QuestionAndAnswer {
+  #
+  id: ID!
+
+  #
+  question: String!
+
+  #
+  question_files: [JSON]
+
+  #
+  answer: String
+
+  #
+  answer_files: [JSON]
+
+  #
+  created_date: Date!
+
+  #
+  updated_date: Date!
+
+  #
+  support_request: SupportRequest!
+}
+
+#
+input EsignatureFilter {
+  #
+  company_inn: String
+}
+
+#
+type Project {
+  #
+  id: ID!
+
+  #
+  date: Date
+
+  #
+  status: String
+
+  #
+  product: String
+
+  #
+  partner: Partner
+
+  #
+  manager: User
+}
+
+#
+input ProjectFilter {
+  #
+  q: String
+
+  #
+  ids: [ID]
+
+  #
+  partner_id: ID
+
+  #
+  group_id: [String]
+
+  #
+  status: String
+}
+
+# Prefill in update project company and contact
+type PrefillProject {
+  #
+  id: ID
+
+  #
+  project_id: String
+
+  #
+  company_data: JSON
+
+  #
+  contact_data: JSON
+}
+
+#
+type Directory {
+  #
+  _id: ID
+
+  #
+  id: ID!
+
+  #
+  name: String!
+
+  #
+  birthday: Date!
+
+  #
+  post: String!
+
+  #
+  workphone: String
+
+  #
+  personal_phone: String
+
+  #
+  additional_phone: String
+
+  #
+  email: String
+
+  #
+  address: String
+
+  #
+  department: String!
+
+  #
+  subdivision: String!
+
+  #
+  status: String
+
+  #
+  description: String
+
+  #
+  user_id: String
+
+  #
+  isOnline: Boolean
+
+  #
+  lastActivity: Date
+}
+
+#
+input DirectoryFilter {
+  #
+  q: String
+
+  #
+  name: [String]
+
+  #
+  birthday: Date
+
+  #
+  post: String
+
+  #
+  workphone: String
+
+  #
+  personal_phone: String
+
+  #
+  additional_phone: String
+
+  #
+  email: String
+
+  #
+  address: String
+
+  #
+  department: [String]
+
+  #
+  subdivision: [String]
+
+  #
+  status: String
+
+  #
+  description: String
+}
+
+#
+type Event {
+  #
+  id: ID
+
+  #
+  title: String
+
+  #
+  subtitle: String
+
+  #
+  text: String
+
+  #
+  images: [String]
+
+  #
+  files: [String]
+
+  #
+  type: String
+
+  #
+  role: String
+
+  #
+  createdAt: Date
+
+  #
+  updatedAt: Date
+}
+
+#
+type DiadocDocumentsData {
+  #
+  documents: [DiadocDocument]
+
+  #
+  totalCount: Int
+}
+
+#
+type DiadocDocument {
+  #
+  id: String
+
+  #
+  messageId: String
+
+  #
+  toTitle: String
+
+  #
+  toBoxId: String
+
+  #
+  kpp: String
+
+  #
+  fromTitle: String
+
+  #
+  fromBoxId: String
+
+  #
+  document_view: String
+
+  #
+  date: Float
+
+  #
+  responsible: User
+
+  #
+  signer: User
+
+  #
+  operator: String
+
+  #
+  contract: Contract
+
+  #
+  documentId: String
+
+  #
+  files: [DiadocDocumentFile]
+}
+
+#
+type DiadocDocumentFile {
+  #
+  id: String
+
+  #
+  attachmentType: String
+
+  #
+  size: Int
+
+  #
+  filename: String
+}
+
+#
+input DiadocEventsFilter {
+  #
+  messageType: DiadocEventsMessageType
+
+  #
+  orderBy: DiadocEventsOrderBy
+
+  #
+  limit: Int
+
+  #
+  period: [Date]
+}
+
+#
+enum DiadocEventsMessageType {
+  #
+  Draft
+
+  #
+  Letter
+
+  #
+  Template
+}
+
+#
+enum DiadocEventsOrderBy {
+  #
+  Ascending
+
+  #
+  Descending
+}
+
+#
+enum EdoOperator {
+  #
+  sbis
+
+  #
+  diadoc
+}
+
+#
+type EdoRoute {
+  #
+  id: ID
+
+  #
+  creator: User
+
+  #
+  responsible: User
+
+  #
+  contract: Contract
+
+  #
+  hidden: Boolean
+
+  #
+  waypoints: [EdoWaypoint]
+
+  #
+  createdAt: Date
+
+  #
+  updatedAt: Date
+}
+
+#
+type EdoWaypoint {
+  #
+  id: ID
+
+  #
+  route: EdoRoute
+
+  #
+  to_name: String
+
+  #
+  to_inn: String
+
+  #
+  to_kpp: String
+
+  #
+  from_name: String
+
+  #
+  from_inn: String
+
+  #
+  documents: [EdoWaypointFile]
+
+  #
+  operator: EdoOperator
+
+  #
+  status: String
+
+  #
+  pack: Boolean
+
+  #
+  hidden: Boolean
+
+  #
+  createdAt: Date
+
+  #
+  updatedAt: Date
+}
+
+#
+type EdoWaypointFile {
+  #
+  id: ID
+
+  #
+  document_id: String
+
+  #
+  document_view: String
+
+  #
+  message_id: String
+
+  #
+  entity_id: String
+
+  #
+  status: String
+
+  #
+  filename: String
+
+  #
+  fileext: String
+
+  #
+  hidden: Boolean
+
+  #
+  createdAt: Date
+
+  #
+  updatedAt: Date
+}
+
+#
+type Mutation {
+  # Update all info from 1C
+  updateAllCone: Boolean
+
+  # Make a call from current user
+  makeCall(phone: String!): Boolean
+
+  # Asterisk status
+  asteriskStatus: JSON
+
+  # Set the password to user with this auth_token, if success deletes auth_token
+  userAuthPass(authToken: String!, password: String!): String
+
+  # Add access to data
+  addUserToShare(email: String!): Boolean
+
+  # Deletes access to data
+  deleteUserFromShare(email: String!): Boolean
+
+  # Gets back JWT token if success login
+  loginUser(email: String!, password: String!, key: String): String!
+
+  # Generate auth key
+  authKeyGenerate(email: String!): Boolean
+
+  # Resends activation link to the email
+  resendMail(email: String): Boolean
+
+  # Updating user entity, only for admin roles
+  updateUser(
+    id: ID!
+    email: String
+    role: UserRole
+    phone: String
+    workphone: String
+    name: String
+    abonentId: String
+    telegramId: String
+    maxId: String
+  ): User
+
+  # Update setting
+  updateSettings(input: InputSettings!): User
+
+  # Telegram account activation in CRM
+  tgActivation(token: String!): Boolean
+
+  # Max account activation in CRM
+  maxActivation(token: String!): Boolean
+
+  # Registration agent user
+  registrationAgent(email: String!, name: String!, password: String!): String
+
+  #
+  viewCourse(link: String!): Boolean
+
+  #
+  createCourse(input: CourseInput!): Course
+
+  #
+  setCourse(userIds: [String!]!, courseId: String!, deadline: Date!): [JSON]
+
+  #
+  unpinCourse(course_id: String!, user_ids: [String!]!): JSON
+
+  #
+  attachMail(password: String!): Boolean
+
+  #
+  setTester(value: Boolean!): Boolean
+
+  #
+  regSmsPartner(inn: String!, phone: String!, email: String!): Boolean
+
+  #
+  regPartner(inn: String!): Boolean
+
+  #
+  updatePartner(id: ID!, tags: [String]): Partner
+
+  #
+  updatePartnerLimit(inn: String!): Boolean
+
+  #
+  updateContract(input: ContractInput!): Contract
+
+  # Forms new doc in the 1C and returns id
+  getActSverki(
+    partnerId: String!
+    contractId: String
+    period: PeriodFilter
+  ): String!
+
+  #
+  createContract(
+    calcId: String!
+    leadId: String!
+    payer: String!
+    insurance: String!
+    contractType: String!
+  ): Contract
+
+  #
+  createActDeliver(id: String!, contract_id: String!): JSON
+
+  #
+  updateSigners(signers: JSON!, contract_id: String!): JSON
+
+  #
+  createBuyout(id: String!, date: Date, amount: Float!, save: Boolean): JSON
+
+  #
+  createBeacon(
+    date_of_issue: String!
+    installation_date_plan: String!
+    kit: String!
+    manager_phone: String!
+    provider_address: String!
+    provider_contact: String!
+    contract_id: String!
+  ): JSON
+
+  #
+  newContract(input: JSON): Boolean
+
+  #
+  addContact(input: ContactInput!): Contact
+
+  #
+  updateContact(input: ContactInput!): Contact
+
+  #
+  updateContacts(ids: [String!], responsible_user_id: String): Boolean
+
+  #
+  deleteContacts(ids: [String!]): Boolean
+
+  #
+  hideContact(id: ID!, company_id: ID): Contact
+
+  #
+  createHolding(input: HoldingCreateInput!): Holding
+
+  #
+  updateHolding(id: ID!, input: HoldingUpdateInput!): Holding
+
+  #
+  deleteHolding(input: HoldingDeleteInput!): Holding
+
+  #
+  bindHolding(input: HoldingBindInput!): Company
+
+  #
+  unbindHolding(input: HoldingUnbindInput!): Company
+
+  #
+  addCompany(input: CompanyInput!, isSbisInfo: Boolean): Company
+
+  #
+  updateCompany(input: UpdateCompanyInput!): Company
+
+  #
+  pickUpCompany(id: ID!): Boolean
+
+  #
+  updateCompanies(ids: [String!], responsible_user_id: String): Boolean
+
+  #
+  deleteCompanies(ids: [String!]): Boolean
+
+  #
+  updateRating(inn: String!): Boolean
+
+  #
+  uploadBase(input: BaseInput!): [String]
+
+  #
+  addLead(input: LeadInput!): Lead
+
+  #
+  addApplyLead(input: LeadInput!): Lead
+
+  #
+  addPreLead(
+    name: String
+    email: String
+    phone: String!
+    inn: String
+    roistat: String!
+  ): Lead
+
+  #
+  addAgentLead(name: String, email: String, phone: String!, inn: String): JSON
+
+  #
+  addBotLead(input: BotLeadInput): Lead
+
+  #
+  updateLead(input: LeadInput!): Lead
+
+  #
+  updateLeads(
+    ids: [String!]
+    responsible_user_id: String
+    status: LeadStatus
+  ): Boolean
+
+  #
+  deleteLeads(ids: [String!]): Boolean
+
+  #
+  addCalc(input: CalcInput!): JSON
+
+  #
+  addFullCalc(input: FullCalcInput!): JSON
+
+  #
+  updateCalc(input: CalcInput!): JSON
+
+  #
+  updateFullCalc(input: FullCalcUpdateInput!): JSON
+
+  #
+  createProject(
+    id: String!
+    product: String
+    origin: String
+    comment: String
+    sop_id: String
+  ): Lead
+
+  #
+  updateProject(objectType: String!, objectId: ID!, input: JSON!): JSON
+
+  #
+  startProject(id: String!): JSON
+
+  #
+  createMemo(input: JSON!): JSON
+
+  #
+  otherLeasing(list: [JSON]!, inn: String!): Boolean
+
+  #
+  addGuarantor(
+    inn: String!
+    project_id: String!
+    name: String
+    type: String
+  ): JSON
+
+  #
+  unpinGuarantor(inn: String!, project_id: String!): JSON
+
+  #
+  bindCalc(leadId: String!, calcId: String!): Boolean
+
+  #
+  updateCalcServices(calcId: String!, input: [JSON]!): [JSON]
+
+  #
+  changeProjectParams(id: ID, projectId: String!, data: JSON!): JSON
+
+  #
+  addTask(input: TaskInput!): Task
+
+  #
+  addTasks(ids: [String!], input: TaskInput!): Task
+
+  #
+  updateTask(input: TaskInput!): Task
+
+  #
+  updateTasks(
+    ids: [String!]
+    is_completed: Boolean
+    responsible_user_id: String
+    complete_till_at: Date
+  ): Boolean
+
+  #
+  deleteTask(id: String!): Task
+
+  #
+  deleteTasks(ids: [String!]): Boolean
+
+  #
+  updateDOTask(
+    ids: [String!]
+    type: String
+    comment: String
+    registry_id: String
+  ): Boolean
+
+  #
+  addApplyNote(input: NoteInput!): Note
+
+  #
+  addNote(input: NoteInput!): Note
+
+  #
+  pinNote(id: ID!): Note
+
+  #
+  unpinNote(id: ID!): Note
+
+  #
+  updateNote(input: NoteInput!): Note
+
+  #
+  deleteNote(id: String!): Note
+
+  #
+  viewMail(uid: String!): Boolean
+
+  #
+  addCandidate(input: CandidateInput!): Candidate
+
+  #
+  updateCandidate(input: CandidateInput!): Candidate
+
+  #
+  updateCandidates(ids: [String!], responsible_user_id: String): Boolean
+
+  #
+  deleteCandidates(ids: [String!]): Boolean
+
+  #
+  addTag(name: String!): Tag
+
+  #
+  updateTag(id: ID!, name: String!): Tag
+
+  #
+  deleteTag(id: String!): Tag
+
+  #
+  addMessageTemplate(
+    title: String!
+    message: String!
+    responsible_id: String!
+    type: String!
+  ): MessageTemplate
+
+  #
+  updateMessageTemplate(
+    id: ID!
+    title: String
+    message: String
+  ): MessageTemplate
+
+  #
+  deleteMessageTemplate(id: ID!): MessageTemplate
+
+  #
+  addFaqPopular(
+    theme: String!
+    question: String!
+    answer: String!
+    pay: String
+  ): FaqPopular
+
+  #
+  updateFaqPopular(
+    id: ID
+    oldTheme: String
+    theme: String
+    question: String
+    answer: String
+    pay: String
+  ): JSON
+
+  #
+  deleteFaqPopular(theme: String, questionId: String): JSON
+
+  #
+  addTheme(
+    name: String!
+    priority: String!
+    responsible_ids: [ID!]!
+    prefilledText: String
+  ): Theme
+
+  #
+  addQuestionAndAnswer(
+    question: String!
+    question_files: [String]
+    support_request_id: ID!
+  ): QuestionAndAnswer
+
+  #
+  updateQuestionAndAnswer(
+    id: ID!
+    answer: String!
+    answer_files: [String]
+  ): QuestionAndAnswer
+
+  #
+  addSupportRequest(
+    theme_id: ID!
+    question: String!
+    question_files: [String]
+  ): [SupportRequest]
+
+  #
+  changeStatusSupportRequest(id: ID!): JSON
+
+  #
+  addEsignature(id: ID, input: EsignatureInput!): Esignature
+
+  #
+  saveOnlyEsignature(id: ID, input: SaveOnlyEsignatureInput!): Esignature
+
+  #
+  updateEsignaturesFiles(ids: [String!]!): [Esignature]
+
+  #
+  addTour(input: TourInput!): Tour
+
+  #
+  updateTour(input: TourInput!): Tour
+
+  #
+  updateTours(input: [TourInput]!): [Tour]
+
+  #
+  viewTour(id: String!): Boolean
+
+  #
+  viewTours(ids: [String]!): Boolean
+
+  #
+  deleteTour(id: String!): Tour
+
+  #
+  addDirectory(input: DirectoryInput!): Directory
+
+  #
+  updateDirectories(input: [DirectoryInput]): [Directory]
+
+  #
+  deleteDirectory(id: String): Directory
+
+  #
+  addEvent(input: EventInput!): Event
+
+  #
+  updateEvent(input: EventInput!): Event
+
+  #
+  deleteEvent(id: ID!): Event
+
+  # Уведомление в телегу
+  new1CEvent(input: JSON!): JSON
+
+  #
+  createDiadocUser(login: String!, password: String!, box_id: String): JSON
+
+  #
+  closeSbisMessage(id: String!): JSON
+
+  #
+  createSbisUser(login: String!, password: String!): JSON
+
+  #
+  createEdoWaypointFiles(
+    edoWaypointFiles: [EdoWaypointFileInput!]!
+  ): [EdoWaypointFile]
+
+  #
+  createEdoWaypoint(edoWaypoint: EdoWaypointInput!): EdoWaypoint
+
+  #
+  createEdoRoute(edoRoute: EdoRouteInput!): EdoRoute
+
+  #
+  closeEdoRoute(route_id: String!): EdoRoute
+}
+
+#
+input InputSettings {
+  #
+  lazy_load: Boolean
+
+  #
+  email_tasks: Boolean
+
+  #
+  email_statusLeads: Boolean
+
+  #
+  email_report: Boolean
+
+  #
+  email_edoNotification: Boolean
+
+  #
+  tg_tasks: Boolean
+
+  #
+  tg_statusLeads: Boolean
+
+  #
+  tg_spec_leads: Boolean
+
+  #
+  tg_edoNotification: Boolean
+
+  #
+  tg_contactBirthdayNotification: Boolean
+
+  #
+  tg_report: TgReport
+
+  #
+  max_report: Boolean
+
+  #
+  max_tasks: Boolean
+
+  #
+  max_statusLeads: Boolean
+
+  #
+  max_spec_leads: Boolean
+
+  #
+  max_edoNotification: Boolean
+
+  #
+  max_contactBirthdayNotification: Boolean
+}
+
+#
+input TgReport {
+  #
+  period: String
+
+  #
+  checked: Boolean
+
+  #
+  filter: JSON
+}
+
+#
+input CourseInput {
+  #
+  id: ID
+
+  #
+  title: String!
+
+  #
+  link: String!
+
+  #
+  description: String
+}
+
+# Input from user to edit a Contract
+input ContractInput {
+  #
+  id: ID
+
+  #
+  tags: [ID]
+}
+
+# Input from user to create/edit a Contact
+input ContactInput {
+  #
+  id: ID
+
+  #
+  name: String
+
+  #
+  responsible_user_id: String
+
+  #
+  group_id: String
+
+  #
+  company_id: String
+
+  #
+  company_ids: [ID]
+
+  #
+  phone: [String]
+
+  #
+  email: String
+
+  #
+  call_source: String
+
+  #
+  city: String
+
+  #
+  post: String
+
+  #
+  tags: [ID]
+
+  #
+  birthday: Date
+}
+
+#
+input HoldingCreateInput {
+  #
+  name: String!
+
+  #
+  description: String!
+
+  #
+  companies_id: [ID]!
+}
+
+#
+input HoldingUpdateInput {
+  #
+  name: String
+
+  #
+  description: String
+
+  #
+  companies_id: [ID]
+}
+
+#
+input HoldingDeleteInput {
+  #
+  id: ID!
+}
+
+#
+input HoldingBindInput {
+  #
+  company_id: ID!
+
+  #
+  holding_id: ID!
+}
+
+#
+input HoldingUnbindInput {
+  #
+  company_id: ID!
+}
+
+# Input from user to create/edit a Company
+input CompanyInput {
+  #
+  name: String
+
+  #
+  responsible_user_id: String!
+
+  #
+  group_id: String
+
+  #
+  phone: [String]
+
+  #
+  email: String
+
+  #
+  tags: [ID]
+
+  #
+  inn: String
+
+  #
+  types: [String]
+
+  #
+  type: String
+}
+
+#
+input UpdateCompanyInput {
+  #
+  id: ID
+
+  #
+  name: String
+
+  #
+  responsible_user_id: String
+
+  #
+  group_id: String
+
+  #
+  phone: [String]
+
+  #
+  email: String
+
+  #
+  tags: [ID]
+
+  #
+  inn: String
+
+  #
+  types: [String]
+
+  #
+  contact_ids: [ID]
+}
+
+#
+input BaseInput {
+  #
+  xlData: [BaseElement!]!
+
+  #
+  responsible_user_id: String!
+
+  #
+  tag: String!
+
+  #
+  options: BaseOptionsInput!
+}
+
+#
+input BaseElement {
+  #
+  name: String!
+
+  #
+  inn: String!
+
+  #
+  contact: String
+
+  #
+  address: String
+
+  #
+  activity: String
+
+  #
+  revenue: Float
+
+  #
+  comment1: String
+
+  #
+  comment2: String
+
+  #
+  comment3: String
+
+  #
+  phone: String
+
+  #
+  email: String
+
+  #
+  post: String
+}
+
+#
+input BaseOptionsInput {
+  #
+  fixInn: Boolean!
+
+  #
+  checkMobilePhone: Boolean!
+}
+
+# Input from user to create/edit a Lead
+input LeadInput {
+  #
+  id: ID
+
+  #
+  created_by: String
+
+  #
+  name: String
+
+  #
+  responsible_user_id: String
+
+  #
+  group_id: String
+
+  #
+  company_id: String
+
+  #
+  tags: [ID]
+
+  #
+  status: LeadStatus
+
+  #
+  closed: String
+
+  #
+  roistat: String
+
+  #
+  user_data: JSON
+}
+
+#
+input BotLeadInput {
+  #
+  id: ID
+
+  #
+  company_name: String
+
+  #
+  company_inn: String
+
+  #
+  company_phone: String
+
+  #
+  name: String
+
+  #
+  phone: String
+
+  #
+  birthday: Date
+
+  #
+  esignature_id: String
+}
+
+#
+input FullCalcUpdateInput {
+  #
+  id: String
+
+  #
+  name: String
+
+  #
+  price: String
+
+  #
+  inputPrice: String
+
+  #
+  prepaidProc: String
+
+  #
+  prepaid: String
+
+  #
+  financeAmount: String
+
+  #
+  duration: String
+
+  #
+  managerCom: String
+
+  #
+  agentCom: String
+
+  #
+  strength: String
+
+  #
+  stair: String
+
+  #
+  graphType: String
+
+  #
+  propType: String
+
+  #
+  nds: String
+
+  #
+  agent: JSON
+
+  #
+  balanceholder: String
+
+  #
+  provider: JSON
+
+  #
+  comment: String
+
+  #
+  prepaidDate: String
+
+  #
+  rate: String
+
+  #
+  wasInUse: Boolean
+
+  #
+  inStock: Boolean
+
+  #
+  subjectData: SubjectUpdateData
+
+  #
+  individualGraph: [JSON]
+
+  #
+  isCalculation: Boolean
+
+  #
+  currency: String
+
+  #
+  company: JSON
+
+  #
+  dueDate: String
+
+  #
+  exceptions: [JSON]
+
+  #
+  hasPhasedFunding: Boolean
+
+  #
+  phasedFunding: [PhasedFundingItemInput]
+}
+
+#
+input SubjectUpdateData {
+  #
+  year: String
+
+  #
+  inStock: Boolean
+
+  #
+  wasInUse: Boolean
+
+  #
+  comment: String
+
+  #
+  conditions: String
+
+  #
+  vin: String
+
+  #
+  adresDKP: String
+
+  #
+  adresDL: String
+
+  #
+  srokPostavki: String
+
+  #
+  srokPostavkiDni: String
+
+  #
+  tehChar: String
+
+  #
+  body: String
+
+  #
+  chassis: String
+
+  #
+  colour: String
+
+  #
+  engine: String
+
+  #
+  pts: String
+
+  #
+  pts_date: String
+
+  #
+  insurance: [String]
+
+  #
+  managerId: String
+
+  #
+  summ: String
+
+  #
+  graph: [JSON]
+
+  #
+  contract: Boolean
+
+  #
+  contract_id: String
+
+  #
+  approved: Boolean
+
+  #
+  subjectid: String
+
+  #
+  commentSubject: String
+}
+
+# Input from user to create/edit a Task
+input TaskInput {
+  #
+  id: ID
+
+  #
+  responsible_user_id: String
+
+  #
+  text: String
+
+  #
+  is_completed: Boolean
+
+  #
+  task_type: TaskType!
+
+  #
+  element_type: String
+
+  #
+  element_id: String
+
+  #
+  complete_till_at: Date
+}
+
+# Input from user to create/edit a Note
+input NoteInput {
+  #
+  id: ID
+
+  #
+  text: String
+
+  #
+  is_editable: Boolean
+
+  #
+  note_type: NoteType
+
+  #
+  element_type: String
+
+  #
+  element_id: String
+}
+
+# Note types described
+enum NoteType {
+  #
+  Common
+
+  #
+  Service
+
+  #
+  Call_in
+
+  #
+  Call_out
+}
+
+# Input from user to create/edit a Candidate
+input CandidateInput {
+  #
+  id: ID
+
+  #
+  name: String
+
+  #
+  responsible_user_id: String
+
+  #
+  group_id: String
+
+  #
+  phone: [String]
+
+  #
+  email: String
+
+  #
+  city: String
+
+  #
+  post: String
+
+  #
+  status: String
+
+  #
+  closed: String
+
+  #
+  tags: [ID]
+
+  #
+  birthday: Date
+}
+
+#
+input EsignatureInput {
+  #
+  name: String!
+
+  #
+  birthday: Date!
+
+  #
+  birthplace: String!
+
+  #
+  user_address: String!
+
+  #
+  user_inn: String!
+
+  #
+  passport: String!
+
+  #
+  passport_date: String
+
+  #
+  passport_place: String!
+
+  #
+  passport_code: String!
+
+  #
+  user_phone: String!
+
+  #
+  company_inn: String!
+
+  #
+  sms_key: String!
+
+  #
+  sms_phone: String!
+
+  #
+  sms_date: Date!
+
+  #
+  user_ip: String
+
+  #
+  company_type: String
+}
+
+#
+input SaveOnlyEsignatureInput {
+  #
+  name: String!
+
+  #
+  birthday: Date!
+
+  #
+  birthplace: String!
+
+  #
+  user_address: String!
+
+  #
+  user_inn: String!
+
+  #
+  passport: String!
+
+  #
+  passport_date: String
+
+  #
+  passport_place: String!
+
+  #
+  passport_code: String!
+
+  #
+  user_phone: String!
+
+  #
+  company_inn: String!
+
+  #
+  sms_key: String
+
+  #
+  sms_phone: String
+
+  #
+  sms_date: Date
+
+  #
+  user_ip: String
+
+  #
+  company_type: String
+}
+
+#
+input TourInput {
+  #
+  id: ID
+
+  #
+  name: String
+
+  #
+  text: String
+
+  #
+  block: String
+
+  #
+  page: String
+
+  #
+  order: Int
+
+  #
+  redirect: String
+
+  #
+  role: [String]
+}
+
+#
+input DirectoryInput {
+  #
+  lastActivity: Date
+
+  #
+  isOnline: Boolean
+
+  #
+  id: String
+
+  #
+  name: String
+
+  #
+  birthday: Date
+
+  #
+  post: String
+
+  #
+  workphone: String
+
+  #
+  personal_phone: String
+
+  #
+  additional_phone: String
+
+  #
+  email: String
+
+  #
+  address: String
+
+  #
+  department: String
+
+  #
+  subdivision: String
+
+  #
+  status: String
+
+  #
+  description: String
+
+  #
+  user_id: String
+
+  #
+  q: String
+}
+
+#
+input EventInput {
+  #
+  id: ID
+
+  #
+  title: String
+
+  #
+  subtitle: String
+
+  #
+  text: String
+
+  #
+  images: [String]
+
+  #
+  files: [String]
+
+  #
+  type: String
+
+  #
+  role: EventRole
+}
+
+#
+enum EventRole {
+  #
+  all
+
+  #
+  partner
+
+  #
+  manager
+}
+
+#
+input EdoWaypointFileInput {
+  #
+  document_id: String!
+
+  #
+  document_view: String!
+
+  #
+  message_id: String
+
+  #
+  entity_id: String
+
+  #
+  status: String
+
+  #
+  filename: String!
+
+  #
+  fileext: String!
+}
+
+#
+input EdoWaypointInput {
+  #
+  route_id: ID!
+
+  #
+  to_name: String!
+
+  #
+  to_inn: String!
+
+  #
+  to_kpp: String
+
+  #
+  from_name: String
+
+  #
+  from_inn: String
+
+  #
+  documents: [ID]
+
+  #
+  operator: EdoOperator!
+
+  #
+  status: String
+
+  #
+  pack: Boolean
+}
+
+#
+input EdoRouteInput {
+  #
+  creator_id: ID!
+
+  #
+  responsible_id: ID!
+
+  #
+  contract_id: ID!
+}
+
+#
+type Subscription {
+  #
+  taskAdded(responsible_user_id: ID!): Task
+
+  #
+  leadFormAdded: JSON
+
+  #
+  incomeCall(workphone: String!): JSON
+
+  #
+  endCall(workphone: String!): JSON
+
+  #
+  newContract: JSON
+
+  #
+  newNotification: Boolean
+}
+
+#
+type UserCourse {
+  #
+  _id: ID
+
+  #
+  id: ID
+
+  #
+  user: User
+
+  #
+  course: Course
+
+  #
+  deadline: Date
+
+  #
+  completion_date: Date
+
+  #
+  viewed: Boolean
+}
+
+#
+type AgentCompany {
+  #
+  _id: ID!
+
+  #
+  id: ID!
+
+  #
+  name: String
+
+  #
+  createdAt: Date
+
+  #
+  phone: [String]
+
+  #
+  email: String
+
+  #
+  inn: String
+}
+
+#
+type AgentLead {
+  #
+  _id: ID!
+
+  #
+  id: ID!
+
+  #
+  name: String
+
+  #
+  creator: String
+
+  #
+  status: LeadStatus
+
+  #
+  company: AgentCompany
+
+  #
+  createdAt: Date
+}
+
+# Filter query for a Note
+input NoteFilter {
+  #
+  q: String
+
+  #
+  ids: [ID]
+
+  #
+  text: String
+
+  #
+  element_id: String
+
+  #
+  responsible_user_id: String
+}
+
+#
+type SignedDocumentFile {
+  #
+  filename: String
+
+  #
+  downloadLink: String
+}
+
+#
+type SignedDocumentList {
+  #
+  companyName: String
+
+  #
+  date: Date
+
+  #
+  status: String
+
+  #
+  operator: String
+
+  #
+  attachments: [SignedDocumentFile]
+}
+
+#
+input CreateEdoRouteInput {
+  #
+  edoRoute: EdoRouteInput!
+
+  #
+  edoWaypoint: EdoWaypointInput!
+
+  #
+  edoWaypointFile: [EdoWaypointFileInput!]!
+}

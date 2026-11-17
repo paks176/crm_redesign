@@ -1,3 +1,0 @@
-mutation ($email: String!, $password: String!, $key: String) {
-  loginUser (email: $email, password: $password, key: $key)
-}

@@ -1,5 +1,0 @@
-mutation ($theme_id: ID!, $question: String!, $question_files: [String]) {
-  addSupportRequest (theme_id: $theme_id, question: $question, question_files: $question_files) {
-    id
-  }
-}

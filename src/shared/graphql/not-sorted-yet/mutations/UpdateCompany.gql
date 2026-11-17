@@ -1,0 +1,5 @@
+mutation UpdateCompany ($input: UpdateCompanyInput!) {
+  updateCompany (input: $input) {
+    _id
+  }
+}

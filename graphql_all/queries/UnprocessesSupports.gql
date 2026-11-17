@@ -1,5 +1,0 @@
-query {
-	_supportMeta {
-		count
-	}
-}

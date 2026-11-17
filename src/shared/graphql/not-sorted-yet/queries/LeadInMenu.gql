@@ -1,0 +1,46 @@
+query LeadInMenu ($id: ID!) {
+  Lead(id: $id) {
+    _id
+    name
+    createdAt
+    status
+    files
+    contracts {
+      id
+      name
+      files
+      status
+    }
+    company {
+      _id
+      name
+      inn
+      files
+      email
+      phone
+      sign_date
+      contacts {
+        _id
+        id
+        post
+        name
+        email
+        phone
+      }
+    }
+    calculators
+    nextTask {
+      _id
+      id
+      task_type
+      complete_till_at
+      is_completed
+    }
+    calcPriceSum
+    serviceComment {
+      _id
+      id
+      text
+    }
+  }
+}

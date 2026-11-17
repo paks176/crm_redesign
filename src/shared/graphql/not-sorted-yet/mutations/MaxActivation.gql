@@ -1,0 +1,3 @@
+mutation MaxActivation ($token: String!) {
+  maxActivation (token: $token)
+}

@@ -1,0 +1,3 @@
+mutation UpdateSupportRequest ($id: ID!) {
+  changeStatusSupportRequest (id: $id)
+}

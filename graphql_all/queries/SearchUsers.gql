@@ -1,9 +1,0 @@
-query allUsers($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: UserFilter) {
-  allUsers(page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
-    _id
-    name
-    group {
-        id
-    }
-  }
-}

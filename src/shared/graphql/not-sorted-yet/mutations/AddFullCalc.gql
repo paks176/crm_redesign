@@ -1,0 +1,3 @@
+mutation AddFullCalc ($input: FullCalcInput!) {
+  addFullCalc (input: $input)
+}

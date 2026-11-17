@@ -1,3 +1,0 @@
-mutation ($userIds: [String!]!, $deadline: Date!, $courseId: String!) {
-    setCourse (userIds: $userIds, deadline: $deadline, courseId: $courseId)
-}

@@ -1,3 +1,0 @@
-mutation ($phone: String!){
-  makeCall(phone:$phone)
-}

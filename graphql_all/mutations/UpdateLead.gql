@@ -1,5 +1,0 @@
-mutation ($input: LeadInput!) {
-  updateLead (input: $input) {
-    _id
-  }
-}

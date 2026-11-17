@@ -1,0 +1,3 @@
+mutation UnpinCourse ($user_ids: [String!]!, $course_id: String!) {
+    unpinCourse (user_ids: $user_ids, course_id: $course_id)
+}

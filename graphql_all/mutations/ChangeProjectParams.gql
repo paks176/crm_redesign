@@ -1,3 +1,0 @@
-mutation ($id: ID, $projectId: String!, $data: JSON!) {
-  changeProjectParams (id: $id, projectId: $projectId, data: $data)
-}

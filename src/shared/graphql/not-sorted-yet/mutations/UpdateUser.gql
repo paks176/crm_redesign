@@ -1,0 +1,10 @@
+mutation UpdateUser ($id: ID!, $phone: String, $workphone: String, $telegramId: String, $maxId: String) {
+    updateUser (id: $id, phone: $phone, workphone: $workphone, telegramId: $telegramId, maxId: $maxId) {
+        _id
+        phone
+        workphone
+        abonentId
+        telegramId
+        maxId
+    }
+}

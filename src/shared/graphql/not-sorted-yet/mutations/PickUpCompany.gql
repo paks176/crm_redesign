@@ -1,0 +1,3 @@
+mutation PickUpCompany ($id: ID!) {
+  pickUpCompany (id: $id)
+}

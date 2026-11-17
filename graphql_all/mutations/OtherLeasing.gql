@@ -1,3 +1,0 @@
-mutation ($list: [JSON]!, $inn: String!) {
-    otherLeasing (list: $list, inn: $inn)
-}

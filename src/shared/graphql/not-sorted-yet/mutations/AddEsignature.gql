@@ -1,0 +1,21 @@
+mutation AddEsignature ($input: EsignatureInput!) {
+  addEsignature (input: $input) {
+    id
+    name
+    birthday
+    birthplace
+    user_address
+    user_inn
+    passport
+    passport_date
+    passport_place
+    passport_code
+    user_phone
+    company_inn
+    sms_key
+    sms_phone
+    sms_date
+    user_ip
+		esignature_id
+  }
+}

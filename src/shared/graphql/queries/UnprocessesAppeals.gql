@@ -1,4 +1,4 @@
-query {
+query _appealMeta {
 	_appealMeta {
 		count
 	}

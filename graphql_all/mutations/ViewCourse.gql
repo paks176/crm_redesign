@@ -1,3 +1,0 @@
-mutation ($link: String!) {
-    viewCourse (link: $link)
-}

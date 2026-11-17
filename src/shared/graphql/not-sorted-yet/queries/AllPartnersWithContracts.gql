@@ -1,0 +1,26 @@
+query AllPartnersWithContracts ($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: PartnerFilter, $filterContract: ContractFilter) {
+  allPartners (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    id
+    rs
+    ks
+    inn
+    kpp
+    bik
+    name
+    bank
+    email
+    phone
+    adresU
+    adresD
+    isemail
+    fullname
+    contracts(filter: $filterContract) {
+      id
+      name
+      status
+    }
+  }
+  _allPartnersMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

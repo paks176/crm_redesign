@@ -1,0 +1,8 @@
+mutation updateQuestionAndAnswer ($id: ID!, $answer: String!, $answer_files: [String]) {
+    updateQuestionAndAnswer(id: $id, answer: $answer, answer_files: $answer_files) {
+        id
+        question
+        answer
+        answer_files
+    }
+}

@@ -1,0 +1,3 @@
+mutation ResendMail ($email: String) {
+  resendMail (email: $email)
+}

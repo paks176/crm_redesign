@@ -1,0 +1,13 @@
+mutation PinNote ($id: ID!) {
+  pinNote (id: $id) {
+    _id
+    text
+    element
+    element_type
+    responsible_user {
+      _id
+      name
+    }
+    createdAt
+  }
+}

@@ -1,0 +1,5 @@
+mutation DeleteTour ($id: String!) {
+  deleteTour (id: $id) {
+    id
+  }
+}

@@ -1,0 +1,3 @@
+query tryFullCalc ($input: FullCalcInput!) {
+  tryFullCalc (input: $input)
+}

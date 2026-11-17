@@ -1,5 +1,0 @@
-mutation ($input: UpdateCompanyInput!) {
-  updateCompany (input: $input) {
-    _id
-  }
-}

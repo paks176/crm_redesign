@@ -1,0 +1,3 @@
+mutation CloseSbisMessage ($id: String!) {
+  closeSbisMessage (id: $id)
+}

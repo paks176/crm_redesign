@@ -1,3 +1,0 @@
-mutation ($email: String!) {
-  authKeyGenerate (email: $email)
-}

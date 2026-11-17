@@ -1,0 +1,3 @@
+mutation UpdateSigners ($signers: JSON! $contract_id: String!) {
+  updateSigners (signers: $signers, contract_id: $contract_id)
+}

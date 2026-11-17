@@ -1,0 +1,3 @@
+mutation RegSmsPartner ($inn: String!, $phone: String!, $email: String!) {
+  regSmsPartner (inn: $inn, phone: $phone, email: $email)
+}

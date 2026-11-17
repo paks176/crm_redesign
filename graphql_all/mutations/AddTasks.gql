@@ -1,5 +1,0 @@
-mutation ($ids: [String!], $input: TaskInput!) {
-  addTasks(ids: $ids, input: $input) {
-    text
-  }
-}

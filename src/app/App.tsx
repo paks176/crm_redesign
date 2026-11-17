@@ -6,7 +6,7 @@ import { MantineProvider } from '@mantine/core'
 import { ApolloProvider } from "@apollo/client/react"
 import { useQuery } from '@apollo/client/react'
 import { client } from '@/app/client.js'
-import Status from '@/shared/graphql/queries/AllThemes.gql'
+import Status from '@/shared/graphql/queries/Status.gql'
 
 function GetStatus () {
     const { loading, error, data } = useQuery(Status)

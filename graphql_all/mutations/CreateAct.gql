@@ -1,3 +1,0 @@
-mutation ($id: String!, $contractId: String!) {
-  createActDeliver (id: $id, contract_id: $contractId)
-}

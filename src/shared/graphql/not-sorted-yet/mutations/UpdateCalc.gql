@@ -1,0 +1,3 @@
+mutation UpdateCalc ($input: CalcInput!) {
+  updateCalc (input: $input)
+}

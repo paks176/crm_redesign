@@ -1,0 +1,3 @@
+mutation DeleteLeads ($ids: [String!]) {
+  deleteLeads (ids: $ids)
+}

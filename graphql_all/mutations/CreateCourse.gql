@@ -1,5 +1,0 @@
-mutation ($input: CourseInput!) {
-    createCourse (input: $input) {
-        id
-    }
-}

@@ -1,6 +1,0 @@
-mutation ($settings: InputSettings!) {
-  updateSettings (input: $settings) {
-    id
-    settings
-  }
-}

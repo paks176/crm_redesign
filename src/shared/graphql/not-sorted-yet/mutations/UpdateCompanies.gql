@@ -1,0 +1,9 @@
+mutation UpdateCompanies (
+    $ids: [String!],
+    $responsible_user_id: String
+  ) {
+      updateCompanies(
+        ids: $ids,
+        responsible_user_id: $responsible_user_id
+      )
+}

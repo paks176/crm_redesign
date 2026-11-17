@@ -1,3 +1,0 @@
-query ($input: FullCalcInput!) {
-  individualTryFullCalc (input: $input)
-}

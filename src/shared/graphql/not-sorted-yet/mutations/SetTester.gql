@@ -1,0 +1,3 @@
+mutation SetTester ($value: Boolean!) {
+  setTester (value: $value)
+}

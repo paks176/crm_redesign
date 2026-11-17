@@ -1,3 +1,0 @@
-query Providers ($q: String!) {
-  projectProviders (q: $q)
-}

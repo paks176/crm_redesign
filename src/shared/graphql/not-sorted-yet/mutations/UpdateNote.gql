@@ -1,0 +1,13 @@
+mutation UpdateNote ($input: NoteInput!) {
+  updateNote (input: $input) {
+    _id
+    text
+    element
+    element_type
+    responsible_user {
+      _id
+      name
+    }
+    createdAt
+  }
+}

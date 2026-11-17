@@ -1,3 +1,0 @@
-mutation ($objectType: String!, $objectId: ID!, $input: JSON!) {
-  updateProject (objectType: $objectType, objectId: $objectId, input: $input)
-}
