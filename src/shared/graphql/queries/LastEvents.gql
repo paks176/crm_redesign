@@ -1,0 +1,6 @@
+query lastEvents {
+  lastEvents {
+    id
+    title
+  }
+}

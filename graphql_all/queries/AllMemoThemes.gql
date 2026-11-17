@@ -1,0 +1,3 @@
+query AllMemoThemes {
+  allMemoThemes
+}

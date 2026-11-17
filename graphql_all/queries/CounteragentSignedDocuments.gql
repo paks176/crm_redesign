@@ -1,0 +1,4 @@
+query counteragentSignedDocuments {
+  counteragentSignedDiadocDocuments
+  counteragentSignedSbisDocuments
+}

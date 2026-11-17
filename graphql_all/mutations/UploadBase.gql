@@ -1,0 +1,3 @@
+mutation ($input: BaseInput!) {
+  uploadBase (input: $input)
+}

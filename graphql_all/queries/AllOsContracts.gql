@@ -1,0 +1,49 @@
+query allContracts ($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: ContractFilter) {
+  allContracts (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    id
+    name
+    date
+    status
+    debt
+    dz1
+    dz2
+    dz3
+    summ
+    # manager {
+    #   name
+    # }
+    partner {
+      name
+      id
+    }
+    duration
+    payments_remainder
+    payments {
+      date
+      plan
+      paid
+    }
+    balanceholder
+    # property_vin
+    property_name
+    # property_sign
+    contract_id
+    date_payment
+    phone
+    note {
+      _id
+      text
+      element
+      element_type
+      is_editable
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+    }
+  }
+  _allContractsMeta (filter: $filter) {
+    count
+  }
+}

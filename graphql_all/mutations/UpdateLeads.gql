@@ -1,0 +1,3 @@
+mutation ($ids: [String!], $responsible_user_id: String, $status: LeadStatus) {
+  updateLeads(ids: $ids, responsible_user_id: $responsible_user_id, status: $status)
+}

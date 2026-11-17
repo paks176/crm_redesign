@@ -1,0 +1,5 @@
+query expiredTasks($id: String $today:Date) {
+  _allTasksMeta (filter: { responsible_user_id: $id, is_completed:false,  complete_till_at: { end: $today } }) {
+    count
+  }
+}

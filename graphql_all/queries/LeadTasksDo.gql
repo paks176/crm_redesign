@@ -1,0 +1,3 @@
+query allLeadDoTasks ($id: String!) {
+  allLeadDoTasks (id: $id)
+}

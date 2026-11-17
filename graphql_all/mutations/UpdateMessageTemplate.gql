@@ -1,0 +1,13 @@
+mutation UpdateMessageTemplate ($id: ID!, $title: String, $message: String) {
+  updateMessageTemplate (
+    id: $id,
+    title: $title
+    message: $message
+  ) {
+    id
+    title
+    message
+    responsible_id
+    type
+  }
+}

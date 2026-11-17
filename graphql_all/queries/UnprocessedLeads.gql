@@ -1,0 +1,5 @@
+query unprocessedLeads {
+  _unprocessedLeadsMeta {
+    count
+  }
+}

@@ -1,0 +1,13 @@
+mutation (
+    $ids: [String!],
+    $is_completed: Boolean,
+    $complete_till_at: Date,
+    $responsible_user_id: String
+  ) {
+      updateTasks(
+        ids: $ids,
+        is_completed: $is_completed,
+        complete_till_at: $complete_till_at,
+        responsible_user_id: $responsible_user_id
+      )
+}

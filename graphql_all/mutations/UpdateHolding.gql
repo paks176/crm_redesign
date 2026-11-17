@@ -1,0 +1,19 @@
+mutation UpdateHolding ($id: ID!, $input: HoldingUpdateInput!) {
+  updateHolding (
+    id: $id,
+    input: $input
+  ) {
+    id
+    name
+    description
+    creator {
+      id
+      name
+    }
+    companies {
+      id
+      name
+      inn
+    }
+  }
+}

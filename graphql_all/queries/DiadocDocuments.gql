@@ -1,0 +1,86 @@
+query diadocDocuments ($refreshKey: Int) {
+  diadocDocuments (refreshKey: $refreshKey ) {
+    documents {
+      id
+      messageId
+      toTitle
+      toBoxId
+      fromTitle
+      fromBoxId
+      date
+      responsible {
+        id
+        name
+        role
+        user_id
+      }
+      signer {
+        id
+        name
+        role
+        user_id
+      }
+      operator
+      documentId
+      document_view
+      contract {
+        id
+        name
+        partner {
+          id
+          name
+          inn
+        }
+      }
+      files {
+        id
+        attachmentType
+        size
+        filename
+      }
+    }
+    totalCount
+  }
+  sbisDocuments (refreshKey: $refreshKey) {
+    documents {
+      id
+      messageId
+      toTitle
+      toBoxId
+      fromTitle
+      fromBoxId
+      date
+      kpp
+      document_view
+      responsible {
+        id
+        name
+        role
+        user_id
+      }
+      signer {
+        id
+        name
+        role
+        user_id
+      }
+      operator
+      documentId
+      contract {
+        id
+        name
+        partner {
+          id
+          inn
+        }
+      }
+      files {
+        id
+        attachmentType
+        size
+        filename
+      }
+    }
+    totalCount
+  }
+}

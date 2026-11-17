@@ -1,0 +1,18 @@
+query allTasks($rerenderKey: Int, $page: Int, $perPage: Int, $filter: TaskFilter, $sortField: String, $sortOrder: String){
+  allTasks (rerenderKey: $rerenderKey, page: $page, perPage: $perPage, filter: $filter, sortField: $sortField, sortOrder: $sortOrder) {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      createdAt
+      updatedAt
+      is_completed
+      task_type
+      phone
+      created_by {
+        _id
+        name
+      }
+  }
+}

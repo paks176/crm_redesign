@@ -1,0 +1,8 @@
+mutation UnbindHolding ($input: HoldingUnbindInput!) {
+  unbindHolding (
+    input: $input
+  ) {
+    id
+    name
+  }
+}

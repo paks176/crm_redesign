@@ -1,0 +1,12 @@
+query MailMessages ($filter: MailMessagesFilter!) {
+  MailMessages (filter: $filter) {
+    id
+    uid
+    viewed
+    date
+    company_address
+    user_address
+    type
+    text
+  }
+}

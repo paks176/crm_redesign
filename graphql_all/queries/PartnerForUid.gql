@@ -1,0 +1,17 @@
+query PartnerForUid ($partner_id: String!) {
+    PartnerForUid (partner_id: $partner_id) {
+        id
+        inn
+        name
+        email
+        fullname
+        kpp
+        adresU
+        adresD
+        phone
+        rs
+        bank
+        bik
+        ks
+    }
+}

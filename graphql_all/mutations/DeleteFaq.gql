@@ -1,0 +1,3 @@
+mutation DeleteFaq ($theme: String, $questionId: String) {
+    deleteFaqPopular (theme: $theme, questionId: $questionId)
+}

@@ -1,0 +1,45 @@
+query Search($q: String) {
+  allContracts (page: 0, perPage: 5, filter:{q: $q})
+  {
+    name
+    id
+  }
+  allContacts (page: 0, perPage: 5, filter:{q: $q, phone: $q})
+  {
+    name
+    id
+    company {
+      id
+      name
+    }
+  }
+  allCompanies (page: 0, perPage: 5, filter:{q: $q, phone: $q})
+  {
+    name
+    id
+  }
+  
+  allLeads (page: 0, perPage: 5, filter:{q: $q})
+  {
+    status
+    company {
+      id
+      name
+    }
+    name
+    id
+  }
+  privateCompanies (page: 0, perPage: 5, filter:{q: $q, phone: $q})
+  {
+    name
+    responsible_user {
+        id
+        name
+    }
+    tags {
+        id
+        name
+    }
+    id
+  }
+}

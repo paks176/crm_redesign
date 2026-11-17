@@ -1,0 +1,13 @@
+query allEvents ($type: String) {
+  allEvents (type: $type) {
+    id
+    title
+    subtitle
+    text
+    type
+    role
+    images
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,5 @@
+mutation ($id: String!, $product: String, $origin: String, $comment: String, $sop_id: String) {
+  createProject (id: $id, product: $product, origin: $origin, comment: $comment, sop_id: $sop_id) {
+    _id
+  }
+}

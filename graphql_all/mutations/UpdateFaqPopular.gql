@@ -1,0 +1,3 @@
+mutation UpdateFaqPopular ($id: ID, $oldTheme: String, $theme: String, $question: String, $answer: String, $pay: String) {
+    updateFaqPopular (id: $id, oldTheme: $oldTheme, theme: $theme, question: $question, answer: $answer, pay: $pay)
+}

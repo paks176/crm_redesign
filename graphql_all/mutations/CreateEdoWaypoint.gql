@@ -1,0 +1,43 @@
+mutation ($edoWaypoint: EdoWaypointInput!) {
+  createEdoWaypoint (edoWaypoint: $edoWaypoint) {
+    id
+    route {
+      id
+      creator {
+        id
+        name
+      }
+      responsible {
+        id
+        name
+      }
+      contract {
+        id
+      }
+    }
+    to_name
+    to_inn
+    to_kpp
+    from_name
+    from_inn
+    documents {
+      id
+      document_id
+      document_view
+      message_id
+      entity_id
+      status
+      filename
+      fileext
+      hidden
+      createdAt
+      updatedAt
+    }
+    operator
+    status
+    pack
+    hidden
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,8 @@
+query allThemes {
+  allThemes {
+    id
+    name
+    priority
+    prefilledText
+  }
+}

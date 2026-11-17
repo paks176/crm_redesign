@@ -1,0 +1,143 @@
+query Lead($rerenderKey: Int, $id: ID!, $skip: Int, $limit: Int) {
+  Lead(id: $id, rerenderKey: $rerenderKey) {
+    id
+    created_by
+    creator {
+      id
+      name
+    }
+    createdAt
+    status
+    statusLog {
+      id
+      createdAt
+      status {
+        id
+        title
+        value
+      }
+      user {
+        id
+        name
+      }
+    }
+    callCenter
+    internet
+    _id
+    project_id
+    product
+    responsible_user {
+      _id
+      name
+    }
+    name
+    company {
+      id
+      _id
+      inn
+      name
+      phone
+      email
+      tags {
+        id
+        name
+      }
+      responsible_user {
+        _id
+        name
+      }
+      contacts {
+        _id
+        name
+        phone
+        email
+        city
+        post
+        tags {
+          id
+          name
+        }
+        responsible_user {
+          _id
+          name
+        }
+      }
+      rating
+      rating_date
+      accreditation
+    }
+    files
+    notes (skip: $skip, limit: $limit) {
+      _id
+      text
+      element
+      element_type
+      note_type
+      is_editable
+      created_by {
+        _id
+        name
+        banned
+      }
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      isPinned
+    }
+    _allNotesMeta
+    activeTasks {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      is_completed
+      task_type
+      created_by {
+        _id
+        name
+      }
+    }
+    tasks (skip: $skip, limit: $limit) {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      is_completed
+      task_type
+      created_by {
+        _id
+        name
+        banned
+      }
+    }
+    tags {
+        id
+        name
+    }
+    calculators
+    contracts {
+      id
+      name
+      status
+      contract_id
+      phone
+      signers
+      delivered
+    }
+    guarantors
+  }
+}

@@ -27,7 +27,7 @@
     "embla-carousel": "8.6.0",
     "embla-carousel-react": "8.6.0",
     "graphql": "16.15.0",
-    "graphql-ws": "^6.4.2",
+    "graphql-ws": "6.4.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "rxjs": "7.8.2"
@@ -41,6 +41,7 @@
     "@storybook/addon-mcp": "10.6.5",
     "@storybook/addon-vitest": "10.6.5",
     "@storybook/react-vite": "10.6.5",
+    "@stylistic/eslint-plugin": "6.0.1",
     "@types/babel__core": "7.20.5",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
@@ -49,6 +50,7 @@
     "@vitest/browser-playwright": "latest",
     "@vitest/coverage-v8": "latest",
     "babel-plugin-react-compiler": "1.0.0",
+    "oxfmt": "0.79.0",
     "oxlint": "1.91.0",
     "playwright": "latest",
     "postcss": "8.5.32",
@@ -57,7 +59,8 @@
     "storybook": "10.6.5",
     "typescript": "~7.0.2",
     "vite": "8.3.6",
-    "vite-plugin-pwa": "^2.0.0",
+    "vite-plugin-graphql-loader": "6.0.0",
+    "vite-plugin-pwa": "2.0.0",
     "vitest": "latest"
   }
 }

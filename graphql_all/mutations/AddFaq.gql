@@ -1,0 +1,14 @@
+mutation AddFaq ($theme: String!, $question: String!, $answer: String!, $pay: String) {
+    addFaqPopular (
+        theme: $theme
+        question: $question
+        answer: $answer
+        pay: $pay
+    ) {
+        id
+        theme
+        question
+        answer
+        pay
+    }
+}

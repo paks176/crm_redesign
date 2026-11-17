@@ -1,0 +1,21 @@
+query allPartners ($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: PartnerFilter) {
+  allPartners (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    id
+    rs
+    ks
+    inn
+    kpp
+    bik
+    name
+    bank
+    email
+    phone
+    adresU
+    adresD
+    isemail
+    fullname
+  }
+  _allPartnersMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

@@ -1,0 +1,3 @@
+query docVisas ($doc: String!) {
+  docVisas (doc: $doc)
+}

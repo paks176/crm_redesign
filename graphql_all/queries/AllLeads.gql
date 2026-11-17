@@ -1,0 +1,37 @@
+query AllLeads ($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: LeadFilter, $checked: Boolean) {
+  allLeads (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter, checked: $checked) {
+    _id
+    project_id
+    created_by
+    group {
+      id
+      name
+    }
+    summ
+    createdAt
+    status
+    company {
+      _id
+      name
+      inn
+    }
+    responsible_user {
+      _id
+      name
+    }
+    contracts {
+      id
+      name
+      status
+    }
+    creator {
+      id
+      name
+    }
+    projectNumber
+    projectCreatedAt
+  }
+  _allLeadsMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

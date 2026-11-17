@@ -1,0 +1,6 @@
+{
+  "jsPlugins": ["@stylistic/eslint-plugin"],
+  "rules": {
+    "@stylistic/object-curly-spacing": ["error", "always"]
+  }
+}

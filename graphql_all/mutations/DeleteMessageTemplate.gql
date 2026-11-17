@@ -1,0 +1,9 @@
+mutation DeleteMessageTemplate ($id: ID!) {
+  deleteMessageTemplate ( id: $id ) {
+    id
+    title
+    message
+    responsible_id
+    type
+  }
+}

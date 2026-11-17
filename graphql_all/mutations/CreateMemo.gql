@@ -1,0 +1,3 @@
+mutation CreateMemo ($input: JSON!) {
+  createMemo (input: $input)
+}

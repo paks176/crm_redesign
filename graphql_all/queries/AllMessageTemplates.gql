@@ -1,0 +1,12 @@
+query AllMessageTemplates ($responsible_id: String, $type: String) {
+  allMessageTemplates (
+    responsible_id: $responsible_id
+    type: $type
+  ) {
+    id
+    title
+    message
+    responsible_id
+    type
+  }
+}

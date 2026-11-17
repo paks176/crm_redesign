@@ -1,0 +1,8 @@
+mutation BindHolding ($input: HoldingBindInput!) {
+  bindHolding (
+    input: $input
+  ) {
+    id
+    name
+  }
+}

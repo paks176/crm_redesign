@@ -1,0 +1,13 @@
+query allUsersCourses ($filter: CourseFilter) {
+  allUsersCourses (filter: $filter) {
+    id
+    user_id
+    name
+    group {
+      id
+    }
+    role
+    banned
+    courses (filter: $filter)
+  }
+}

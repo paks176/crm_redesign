@@ -1,0 +1,37 @@
+query allCompanies ($rerenderKey: Int, $page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: CompanyFilter) {
+  allCompanies (rerenderKey: $rerenderKey, page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    _id
+    name
+    inn
+    phone (all: true)
+    email
+    limit_summ
+    limit_count
+    leads {
+      id
+      name
+      creator {
+        id
+        name
+      }
+      project_id
+    }
+    tasks {
+      is_completed
+    }
+    group {
+      id
+      name
+    }
+    createdAt
+    responsible_user {
+      _id
+      name
+    }
+    types
+    lastNote
+  }
+  _allCompaniesMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

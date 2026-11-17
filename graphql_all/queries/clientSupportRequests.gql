@@ -1,0 +1,30 @@
+query clientSupportRequests {
+  clientSupportRequests {
+    id
+    client_id
+    client_name
+    responsible_ids
+    created_date
+    updated_date
+    last_date
+    uuid
+		theme {
+      id
+      name
+      priority
+    }
+    status
+    questions {
+      id
+      support_request {
+        id
+      }
+      question
+      question_files
+      created_date
+      updated_date
+      answer
+      answer_files
+    }
+  }
+}

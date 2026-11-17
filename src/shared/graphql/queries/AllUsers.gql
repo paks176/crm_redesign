@@ -1,0 +1,14 @@
+query allUsers {
+  allUsers (page: 0, perPage: 1000, sortField: "name", sortOrder: "asc") {
+    id
+    user_id
+    name
+    group {
+        id
+    }
+    role
+    roles
+    banned
+    isOnline
+  }
+}

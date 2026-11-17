@@ -1,0 +1,17 @@
+mutation UpdateDirectories ($input: [DirectoryInput]) {
+  updateDirectories (input: $input) {
+    id
+    name
+    birthday
+    post
+    workphone
+    personal_phone
+    additional_phone
+    email
+    address
+    department
+    subdivision
+    status
+    description
+  }
+}

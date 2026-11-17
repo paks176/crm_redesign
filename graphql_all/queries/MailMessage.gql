@@ -1,0 +1,27 @@
+query MailMessage ($uidMessage: String!) {
+  MailMessage (uidMessage: $uidMessage) {
+    id
+    uid
+    flags
+    date
+    from {
+      address
+      name
+    }
+    to {
+      address
+      name
+    }
+    replyTo {
+      address
+      name
+    }
+    subject
+    text
+    attachments {
+      partId
+      filename
+      size
+    }
+  }
+}

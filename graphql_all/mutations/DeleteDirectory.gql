@@ -1,0 +1,17 @@
+mutation DeleteDirectory ($id: String) {
+  deleteDirectory (id: $id) {
+    id
+    name
+    birthday
+    post
+    workphone
+    personal_phone
+    additional_phone
+    email
+    address
+    department
+    subdivision
+    status
+    description
+  }
+}

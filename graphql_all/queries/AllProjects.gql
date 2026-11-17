@@ -1,0 +1,14 @@
+query allProjects ($page: Int, $perPage: Int, $filter: ProjectFilter, $sortField: String, $sortOrder: String) {
+  allProjects (page: $page, perPage: $perPage, filter: $filter, sortField: $sortField, sortOrder: $sortOrder) {
+    id
+    date
+    status
+    manager {
+      name
+    }
+    product
+  }
+  _allProjectsMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

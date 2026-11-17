@@ -1,0 +1,4 @@
+query CalcServices ($calcId: String!) {
+  calcServices(calc_id: $calcId)
+  calcServicesList
+}

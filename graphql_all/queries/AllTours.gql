@@ -1,0 +1,13 @@
+query allTours {
+  allTours {
+    id
+    name
+    text
+    block
+    page
+    order
+    role
+    viewed
+    redirect
+  }
+}

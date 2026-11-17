@@ -1,0 +1,12 @@
+query AllProjectleads {
+  projectLeads {
+    id
+    name
+    project_id
+    company {
+      name
+      inn
+    }
+    createdAt
+  }
+}

@@ -1,0 +1,3 @@
+mutation ($ids: [String!]) {
+  deleteTasks (ids: $ids)
+}

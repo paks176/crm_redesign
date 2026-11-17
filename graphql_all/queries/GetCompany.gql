@@ -1,0 +1,3 @@
+query getCompany ($inn: String!) {
+  getCompany (inn: $inn)
+}

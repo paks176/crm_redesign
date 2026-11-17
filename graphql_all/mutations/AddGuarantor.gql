@@ -1,0 +1,3 @@
+mutation AddGuarantor ($inn: String!, $project_id: String!) {
+    addGuarantor (inn: $inn, project_id: $project_id)
+}

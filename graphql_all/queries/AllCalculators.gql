@@ -1,0 +1,6 @@
+query AllCalculators ($q: String, $free: Boolean, $filter: JSON, $page: Int, $perPage: Int, $rerenderKey: Int) {
+  allCalculators (q: $q, free: $free, filter: $filter, page: $page, perPage: $perPage, rerenderKey: $rerenderKey)
+  _allCalculatorsMeta (q: $q, free: $free, filter: $filter, page: $page, perPage: $perPage, rerenderKey: $rerenderKey) {
+    count
+  }
+}

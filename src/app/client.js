@@ -16,7 +16,7 @@ import { tap } from 'rxjs'
 const isWebSocketOnly = import.meta.env.VITE_APP_WEBSOCKET_ONLY === 'true'
 
 const httpLink = new HttpLink({
-    uri: import.meta.env.VITE_APP_HTTP
+    uri: import.meta.env.VITE_APP_HTTP + '/graphql/'
 })
 
 const authLink = new SetContextLink((prevContext) => {

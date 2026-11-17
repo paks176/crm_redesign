@@ -1,0 +1,26 @@
+query AllContacts ($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: ContactFilter) {
+  allContacts (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    _id
+    name
+    city
+    phone
+    email
+    group {
+      id
+      name
+    }
+    company {
+      _id
+      name
+    }
+    createdAt
+    responsible_user {
+      _id
+      id
+      name
+    }
+  }
+  _allContactsMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

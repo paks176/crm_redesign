@@ -1,0 +1,3 @@
+mutation ($calcId: String!, $leadId: String!) {
+  bindCalc (calcId: $calcId, leadId: $leadId)
+}

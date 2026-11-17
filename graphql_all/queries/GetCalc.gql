@@ -1,0 +1,3 @@
+query GetCalc ($id: String!) {
+  getCalc (id: $id)
+}

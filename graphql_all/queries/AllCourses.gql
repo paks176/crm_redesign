@@ -1,0 +1,9 @@
+query allCourses {
+  allCourses {
+    id
+    title
+    link
+    description
+    viewed
+  }
+}

@@ -1,0 +1,9 @@
+mutation (
+    $ids: [String!],
+    $responsible_user_id: String
+  ) {
+      updateContacts(
+        ids: $ids,
+        responsible_user_id: $responsible_user_id
+      )
+}

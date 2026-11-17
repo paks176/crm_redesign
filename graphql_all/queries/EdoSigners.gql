@@ -1,0 +1,10 @@
+query EdoSigners ($operator: EdoOperator) {
+  edoSigners (operator: $operator) {
+    id
+    name
+    roles
+    group {
+      id
+    }
+  }
+}

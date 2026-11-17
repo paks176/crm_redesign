@@ -1,0 +1,3 @@
+mutation ($authToken: String!, $password: String!) {
+  userAuthPass (authToken: $authToken, password: $password)
+}

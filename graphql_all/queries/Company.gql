@@ -1,0 +1,127 @@
+query Company($rerenderKey: Int, $id: ID!, $skip: Int, $limit: Int) {
+  Company(id: $id, rerenderKey: $rerenderKey) {
+    _id
+    name
+    inn
+    email
+    phone
+    sign_date
+    diadoc {
+      HasCertificateToSign
+    }
+    sign {
+      createdAt
+    }
+    createdAt
+    files
+    limit_summ
+    limit_count
+    balance_summ
+    balance_count
+    period
+    holding {
+      id
+      name
+      description
+      companies {
+        id
+        name
+        inn
+      }
+    }
+    contacts {
+      _id
+      name
+      phone
+      email
+      city
+      post
+      birthday
+      tags {
+        id
+        name
+      }
+      responsible_user {
+        _id
+        name
+      }
+    }
+    notes (skip: $skip, limit: $limit) {
+      _id
+      text
+      element
+      element_type
+      note_type
+      is_editable
+      created_by {
+        _id
+        name
+        banned
+      }
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      isPinned
+    }
+    _allNotesMeta
+    tasks (skip: $skip, limit: $limit) {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      is_completed
+      task_type
+      created_by {
+        _id
+        name
+        banned
+      }
+    }
+    activeTasks {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      is_completed
+      task_type
+      created_by {
+        _id
+        name
+      }
+    }
+    tags {
+        id
+        name
+    }
+    leads {
+        id
+        name
+        status
+     }
+    responsible_user {
+      _id
+      name
+    }
+    rating
+    rating_date
+    types
+    # group {
+    #   id
+    #   name
+    # }
+  }
+}

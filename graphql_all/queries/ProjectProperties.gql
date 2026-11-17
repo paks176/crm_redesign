@@ -1,0 +1,5 @@
+query ProjectProperties ($id: String!) {
+  projectProperties (
+    id: $id
+  )
+}

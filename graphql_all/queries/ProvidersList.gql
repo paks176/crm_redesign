@@ -1,0 +1,3 @@
+query providerList ($inn: String) {
+  providerList(inn: $inn)
+}

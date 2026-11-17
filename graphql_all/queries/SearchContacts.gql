@@ -1,0 +1,10 @@
+query allContacts($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: ContactFilter) {
+  allContacts(page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    _id
+    name
+    email
+    phone
+    city
+    post
+  }
+}

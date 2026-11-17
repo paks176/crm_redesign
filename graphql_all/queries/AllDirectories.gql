@@ -1,0 +1,31 @@
+query allDirectories (
+  $page: Int,
+  $perPage: Int,
+  $sortField: String,
+  $sortOrder: String,
+  $filter: DirectoryFilter
+  ) {
+    allDirectories (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+      id
+      name
+      birthday
+      post
+      workphone
+      personal_phone
+      additional_phone
+      email
+      address
+      department
+      subdivision
+      status
+      description
+      user_id
+      isOnline
+      lastActivity
+    }
+    _allDirectoriesMeta (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+      count
+    }
+    allSubdivisions
+    allDepartments
+  }

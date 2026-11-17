@@ -1,0 +1,3 @@
+query otherLeasing ($inn: String!, $conturfocus: Boolean) {
+  otherLeasing (inn: $inn, conturfocus: $conturfocus)
+}

@@ -1,0 +1,14 @@
+query allMemos ($page: Int!, $perPage: Int!, $filter: MemoFilter!) {
+  allMemos (
+    page: $page
+    perPage: $perPage
+    filter: $filter
+  )
+  _allMemosMeta (
+    page: $page
+    perPage: $perPage
+    filter: $filter
+  ) {
+    count
+  }
+}

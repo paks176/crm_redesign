@@ -1,0 +1,5 @@
+query UserForAdmin ($id: ID!) {
+    userForAdmin (id: $id) {
+        email
+    }
+}

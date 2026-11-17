@@ -1,0 +1,3 @@
+mutation ($inn: String!) {
+  updatePartnerLimit (inn: $inn)
+}

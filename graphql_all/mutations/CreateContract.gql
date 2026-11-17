@@ -1,0 +1,11 @@
+mutation ($calcId: String!, $leadId: String!, $payer: String!, $insurance: String!, $contractType: String!) {
+  createContract (
+    calcId: $calcId,
+    leadId: $leadId,
+    payer: $payer,
+    insurance: $insurance,
+    contractType: $contractType
+  ) {
+    id
+  }
+}

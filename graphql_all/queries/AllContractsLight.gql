@@ -1,0 +1,7 @@
+query allContracts ($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: ContractFilter) {
+  allContracts (page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+    id
+    name
+    date
+  }
+}

@@ -1,0 +1,92 @@
+query Contact($id: ID!, $skip: Int, $limit: Int) {
+  Contact(id: $id) {
+    _id
+    name
+    city
+    post
+    email
+    phone
+    createdAt
+    birthday
+    company {
+      _id
+      inn
+      name
+      phone
+      email
+      tags {
+        id
+        name
+      }
+      responsible_user {
+        _id
+        name
+      }
+    }
+    notes (skip: $skip, limit: $limit) {
+      _id
+      text
+      element
+      element_type
+      note_type
+      is_editable
+      created_by {
+        _id
+        name
+        banned
+      }
+      responsible_user {
+        _id
+        name
+      }
+      isPinned
+      createdAt
+    }
+    _allNotesMeta
+    activeTasks {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      is_completed
+      task_type
+      created_by {
+        _id
+        name
+      }
+    }
+    tasks (skip: $skip, limit: $limit) {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      responsible_user {
+        _id
+        name
+      }
+      createdAt
+      is_completed
+      task_type
+      created_by {
+        _id
+        name
+        banned
+      }
+    }
+    tags {
+        id
+        name
+    }
+    responsible_user {
+      _id
+      name
+    }
+  }
+}

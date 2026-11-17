@@ -1,0 +1,3 @@
+query checkProject($id: ID!) {
+  checkProject (id: $id)
+}

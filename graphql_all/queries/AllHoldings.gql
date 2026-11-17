@@ -1,0 +1,12 @@
+query AllHoldings($input: HoldingFilter){
+  allHoldings (input: $input) {
+    id
+    name
+    description
+    companies {
+      id
+      name
+      inn
+    }
+  }
+}

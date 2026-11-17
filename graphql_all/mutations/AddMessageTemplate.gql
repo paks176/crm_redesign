@@ -1,0 +1,14 @@
+mutation AddMessageTemplate ($title: String!, $message: String!, $responsible_id: String!, $type: String!) {
+  addMessageTemplate (
+    title: $title
+    message: $message
+    responsible_id: $responsible_id
+    type: $type
+  ) {
+    id
+    title
+    message
+    responsible_id
+    type
+  }
+}

@@ -1,0 +1,12 @@
+query Holding($id: ID!){
+  Holding (id: $id) {
+    id
+    name
+    description
+    companies {
+      id
+      name
+      inn
+    }
+  }
+}

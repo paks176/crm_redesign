@@ -1,0 +1,15 @@
+mutation DeleteEvent ($id: ID!) {
+  deleteEvent (
+    id: $id
+  ) {
+    id
+    title
+    subtitle
+    text
+    type
+    role
+    images
+    createdAt
+    updatedAt
+  }
+}

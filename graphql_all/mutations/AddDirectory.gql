@@ -1,0 +1,18 @@
+mutation AddDirectory ($input: DirectoryInput!) {
+  addDirectory (input: $input) {
+    id
+    name
+    birthday
+    post
+    workphone
+    personal_phone
+    additional_phone
+    email
+    address
+    department
+    subdivision
+    status
+    description
+    user_id
+  }
+}

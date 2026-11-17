@@ -1,0 +1,12 @@
+mutation DeleteHolding ($input: HoldingDeleteInput!) {
+  deleteHolding (
+    input: $input
+  ) {
+    id
+    name
+		creator {
+      id
+      name
+    }
+  }
+}

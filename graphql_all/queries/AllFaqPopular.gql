@@ -1,0 +1,9 @@
+query allFaqPopular {
+	allFaqPopular {
+		id
+		theme
+		question
+		answer
+		pay
+  }
+}

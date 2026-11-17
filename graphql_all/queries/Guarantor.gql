@@ -1,0 +1,3 @@
+query Guarantor ($inn: String!, $id: ID!) {
+    checkCompany (inn: $inn, id: $id) 
+}

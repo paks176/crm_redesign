@@ -1,0 +1,8 @@
+query PrefillProject ($leadId: String) {
+    PrefillProject (leadId: $leadId) {
+        id
+        project_id
+        company_data
+        contact_data
+    }
+}

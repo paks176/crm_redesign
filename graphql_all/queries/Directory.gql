@@ -1,0 +1,21 @@
+query Directory($user_oid: ID!) {
+    Directory(user_oid: $user_oid) {
+        _id
+        id
+        name
+        birthday
+        post
+        workphone
+        personal_phone
+        additional_phone
+        email
+        address
+        department
+        subdivision
+        status
+        description
+        user_id
+        isOnline
+        lastActivity
+    }
+}

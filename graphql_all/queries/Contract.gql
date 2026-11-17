@@ -1,0 +1,74 @@
+query Contract($id: ID!) {
+  Contract(id: $id) {
+    id
+    contract_id
+    name
+    files
+    date
+    debt
+    summ
+    status
+    lead {
+      id
+      name
+    }
+    manager {
+      name
+      email
+      phone
+    }
+    partner {
+      name
+      id
+      diadoc {
+        HasCertificateToSign
+      }
+      inn
+    }
+    provider {
+      id
+      name
+      inn
+      kpp
+    }
+    duration
+    payments {
+      date
+      plan
+      paid
+    }
+    archives {
+      id
+      name
+      type
+      summ
+      status
+    }
+    tags {
+        id
+        name
+    }
+    property_vin
+    property_name
+    property_sign
+    balanceholder
+    delivered
+    signers
+    beacons {
+      id
+      contract_id
+      subject
+      color
+      date_of_issue
+      manager_phone
+      provider
+      provider_name
+      provider_address
+      provider_contact
+      kit
+      installation_date_plan
+      installation_date_fact
+    }
+    guarantor
+  }
+}

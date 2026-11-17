@@ -1,0 +1,29 @@
+query allTasks ($rerenderKey: Int, $page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: TaskFilter){
+  allTasks (rerenderKey: $rerenderKey,page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
+      _id
+      text
+      element
+      element_type
+      complete_till_at
+      createdAt
+      updatedAt
+      is_completed
+      task_type
+      phone
+      group {
+        id
+        name
+      }
+      responsible_user {
+        _id
+        name
+      }
+      created_by {
+        _id
+        name
+      }
+  }
+  _allTasksMeta (page: $page, perPage: $perPage, filter: $filter) {
+    count
+  }
+}

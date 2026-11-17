@@ -1,0 +1,14 @@
+query AllClientContacts ($companyIds: [ID!]!) {
+  allClientContacts (companyIds: $companyIds) {
+    _id
+    name
+    city
+    phone
+    email
+    post
+    company {
+      _id
+      name
+    }
+  }
+}

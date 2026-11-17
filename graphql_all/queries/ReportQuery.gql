@@ -1,0 +1,3 @@
+query GetReport ($sort: PeriodFilter, $filter: JSON) {
+    getReport(sort: $sort, filter: $filter)
+}

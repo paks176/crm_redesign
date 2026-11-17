@@ -1,0 +1,33 @@
+query Me{
+    me {
+        _id
+        group {
+            id
+        }
+        name
+        role
+        roles
+        workphone
+        phone
+        abonentId
+        telegramId
+        maxId
+        email
+        settings
+        ref_id
+        courses
+        user_id
+        tours {
+          id
+          name
+          text
+          block
+          page
+          order
+          role
+          viewed
+          redirect
+        }
+        tester
+    }
+}
