@@ -11,6 +11,7 @@ import { playwright } from '@vitest/browser-playwright'
 import { resolve } from 'path'
 import graphqlLoader from 'vite-plugin-graphql-loader'
 import tanstackRouter from '@tanstack/router-plugin/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 
 const dirname = typeof import.meta.dirname !== 'undefined' ? import.meta.dirname : path.dirname(fileURLToPath(import.meta.url));
 
@@ -24,6 +25,25 @@ export default defineConfig({
         react(),
         babel({presets: [reactCompilerPreset()]}),
         graphqlLoader(),
+        VitePWA({
+                registerType: 'autoUpdate', // Автоматическое обновление Service Worker
+                includeAssets: ['favicon.png'],
+                manifest: {
+                    name: 'CRM Система',
+                    short_name: 'CRM',
+                    description: 'Корпоративная CRM-система',
+                    theme_color: '#ffffff',
+                    background_color: '#ffffff',
+                    display: 'standalone',
+                    start_url: '/',
+                    icons: [
+                        {src: '/favicon.png', sizes: '192x192', type: 'image/png'},
+                    ],
+                },
+                devOptions: {
+                    enabled: false, // Отключено в dev-режиме, чтобы кэш не мешал разработке
+                }
+            })
     ],
     resolve: {
         alias: {
