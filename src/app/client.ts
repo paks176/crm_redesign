@@ -43,7 +43,7 @@ const wsClient = createClient({
     connectionAckWaitTimeout: 10_000,
     connectionParams: () => {
         const token = localStorage.getItem('access_token')
-        return token ? {Authorization: `Bearer ${token}`} : {}
+        return token ? { Authorization: `Bearer ${token}` } : {}
     },
     shouldRetry: () => true,
     retryAttempts: Infinity,
