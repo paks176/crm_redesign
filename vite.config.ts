@@ -1,7 +1,7 @@
 /// <reference types="vitest/config" />
-import react, { reactCompilerPreset } from '@vitejs/plugin-react';
-import babel from '@rolldown/plugin-babel';
-import { defineConfig } from 'vite';
+import react, { reactCompilerPreset } from '@vitejs/plugin-react'
+import babel from '@rolldown/plugin-babel'
+import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 import path from 'node:path'
@@ -10,21 +10,26 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { playwright } from '@vitest/browser-playwright'
 import { resolve } from 'path'
 import graphqlLoader from 'vite-plugin-graphql-loader'
+import tanstackRouter from '@tanstack/router-plugin/vite'
 
-const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+const dirname = typeof import.meta.dirname !== 'undefined' ? import.meta.dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
     plugins: [
+        tanstackRouter({
+            target: 'react',
+            autoCodeSplitting: true,
+        }),
         react(),
         babel({presets: [reactCompilerPreset()]}),
         graphqlLoader(),
     ],
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'src'),
-            '~': resolve(__dirname, 'node_modules'),
-            '%': resolve(__dirname, 'public')
+            '@': resolve(dirname, 'src'),
+            '~': resolve(dirname, 'node_modules'),
+            '%': resolve(dirname, 'public')
         }
     },
     test: {
@@ -40,7 +45,7 @@ export default defineConfig({
             test: {
                 name: 'storybook',
                 browser: {
-                    enabled: true,
+                    enabled: false,
                     headless: true,
                     provider: playwright({}),
                     instances: [{

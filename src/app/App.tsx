@@ -1,12 +1,13 @@
-import ltLogo from '%/logo.png'
 import '@/shared/assets/styles/App.css'
 import '@/shared/assets/styles/index.css'
 import '@mantine/core/styles.css'
 import { MantineProvider } from '@mantine/core'
 import { ApolloProvider } from "@apollo/client/react"
+import { RouterProvider } from "@tanstack/react-router"
 import { useQuery } from '@apollo/client/react'
-import { client } from '@/app/client.js'
+import { client } from '@/app/client.ts'
 import Status from '@/shared/graphql/queries/Status.gql'
+import { router } from '@/app/router.ts'
 
 function GetStatus () {
     const { loading, error, data } = useQuery(Status)
@@ -27,15 +28,10 @@ function GetStatus () {
 
 function App() {
     return (
-        <ApolloProvider client={client}>
+        <ApolloProvider client={ client }>
             <MantineProvider>
-                <section id="center">
-                    <div className="hero">
-                        <img src={ ltLogo } className="base" width="170" height="179" alt=""/>
-                        <br/>
-                        <GetStatus />
-                    </div>
-                </section>
+                <GetStatus />
+                <RouterProvider router={ router } />
             </MantineProvider>
         </ApolloProvider>
     )

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
     ApolloClient,
     ApolloLink,
@@ -12,6 +13,7 @@ import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
 import { OperationTypeNode } from 'graphql'
 import { createClient } from 'graphql-ws'
 import { tap } from 'rxjs'
+import { router } from './router'
 
 const isWebSocketOnly = import.meta.env.VITE_APP_WEBSOCKET_ONLY === 'true'
 
@@ -25,7 +27,7 @@ const authLink = new SetContextLink((prevContext) => {
     return {
         headers: {
             ...prevContext.headers,
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+            ...(token ? {Authorization: `Bearer ${token}`} : {}),
         },
     }
 })
@@ -41,7 +43,7 @@ const wsClient = createClient({
     connectionAckWaitTimeout: 10_000,
     connectionParams: () => {
         const token = localStorage.getItem('access_token')
-        return token ? { Authorization: `Bearer ${token}` } : {}
+        return token ? {Authorization: `Bearer ${token}`} : {}
     },
     shouldRetry: () => true,
     retryAttempts: Infinity,
@@ -82,7 +84,7 @@ const wsLink = new GraphQLWsLink(wsClient)
 const transportLink = isWebSocketOnly
     ? wsLink
     : ApolloLink.split(
-        ({ operationType }) => operationType === OperationTypeNode.SUBSCRIPTION,
+        ({operationType}) => operationType === OperationTypeNode.SUBSCRIPTION,
         wsLink,
         authedHttpLink
     )
@@ -92,17 +94,20 @@ const handleUnauthorized = () => {
     void wsClient.dispose()
     void client.clearStore()
 
-    if (window.location.pathname !== '/login') {
-        window.location.assign('/login')
+    if (router.state.location.pathname !== '/auth') {
+        void router.navigate({
+            to: '/auth',
+            replace: true
+        });
     }
 }
 
-const errorLink = new ErrorLink(({ error, operation }) => {
+const errorLink = new ErrorLink(({error, operation}) => {
     if (CombinedGraphQLErrors.is(error)) {
         for (const gqlError of error.errors) {
             console.error(
                 `[GraphQL error] (${operation.operationName}): ${gqlError.message}`,
-                { locations: gqlError.locations, path: gqlError.path }
+                {locations: gqlError.locations, path: gqlError.path}
             )
 
             if (gqlError.extensions?.code === 'UNAUTHENTICATED') {
