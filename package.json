@@ -24,6 +24,7 @@
     "@mantine/modals": "9.7.5",
     "@mantine/notifications": "9.7.5",
     "@mantine/nprogress": "9.7.5",
+    "@tanstack/react-devtools": "0.10.14",
     "@tanstack/react-router": "1.170.46",
     "@tanstack/react-router-devtools": "1.167.3",
     "dayjs": "1.11.23",
