@@ -13,6 +13,8 @@ import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as PublicRouteImport } from './routes/_public'
 import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
 import { Route as PublicAuthRouteImport } from './routes/_public/auth'
+import { Route as PublicRecoveryRouteImport } from './routes/_public/recovery'
+import { Route as PublicRegisterRouteImport } from './routes/_public/register'
 
 const AuthenticatedRoute = AuthenticatedRouteImport.update({
   id: '/_authenticated',
@@ -32,32 +34,50 @@ const PublicAuthRoute = PublicAuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => PublicRoute,
 } as any)
+const PublicRecoveryRoute = PublicRecoveryRouteImport.update({
+  id: '/recovery',
+  path: '/recovery',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicRegisterRoute = PublicRegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => PublicRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/auth': typeof PublicAuthRoute
+  '/recovery': typeof PublicRecoveryRoute
+  '/register': typeof PublicRegisterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedIndexRoute
   '/auth': typeof PublicAuthRoute
+  '/recovery': typeof PublicRecoveryRoute
+  '/register': typeof PublicRegisterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/_public': typeof PublicRouteWithChildren
   '/_public/auth': typeof PublicAuthRoute
+  '/_public/recovery': typeof PublicRecoveryRoute
+  '/_public/register': typeof PublicRegisterRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth'
+  fullPaths: '/' | '/auth' | '/recovery' | '/register'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth'
+  to: '/' | '/auth' | '/recovery' | '/register'
   id:
     | '__root__'
     | '/_authenticated'
     | '/_public'
     | '/_public/auth'
+    | '/_public/recovery'
+    | '/_public/register'
     | '/_authenticated/'
   fileRoutesById: FileRoutesById
 }
@@ -96,6 +116,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicAuthRouteImport
       parentRoute: typeof PublicRoute
     }
+    '/_public/recovery': {
+      id: '/_public/recovery'
+      path: '/recovery'
+      fullPath: '/recovery'
+      preLoaderRoute: typeof PublicRecoveryRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/register': {
+      id: '/_public/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof PublicRegisterRouteImport
+      parentRoute: typeof PublicRoute
+    }
   }
 }
 
@@ -113,10 +147,14 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
 
 interface PublicRouteChildren {
   PublicAuthRoute: typeof PublicAuthRoute
+  PublicRecoveryRoute: typeof PublicRecoveryRoute
+  PublicRegisterRoute: typeof PublicRegisterRoute
 }
 
 const PublicRouteChildren: PublicRouteChildren = {
   PublicAuthRoute: PublicAuthRoute,
+  PublicRecoveryRoute: PublicRecoveryRoute,
+  PublicRegisterRoute: PublicRegisterRoute,
 }
 
 const PublicRouteWithChildren =
